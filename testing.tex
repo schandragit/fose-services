@@ -1,0 +1,63 @@
+
+\section{Research Direction: Testing and Troubleshooting}
+\label{sec:testing-debugging}
+
+\subsection{Software Testing as a Service}
+
+Within the increasing demand for software development as a service,
+\textit{software testing as a service} has seen significant growth and adoption
+in its own right, often as a separate service that is independent of development
+activities. In fact, according to a 2006 survey,\footnote{\scriptsize
+  \url{http://www.drdobbs.com/architecture-and-design/cheapers-not-always-better/184415486?requestid=247829}}
+software testing was the second largest outsourced software-engineering activity
+after coding: 81\% of the 200 industrial practitioners, who participated in the
+survey, stated that they outsource software testing. Given this trend, services
+companies now routinely offer services that focus exclusively on testing
+activities.
+
+%% The engagement modes can vary: staff augmentation, core/flex, managed service
+%% (fixed capacity, outcome based). But perhaps this needs to be mentioned earlier
+%% as these modes are not particular to testing services.
+
+The nature of the activities performed in a testing-services engagement can vary
+from client to client; but, typically, the scope of work includes activities,
+such as test design, test-data creation, test automation, test execution, and
+test maintenance. These activities, of course, pertain to testing in general
+(whether performed in-house or in an outsourced manner), but there are factors
+that can add unique challenges in the setting of testing services. For instance,
+many of these activities can require specific skills in testing techniques/tools
+or coding expertise, which the average practitioner involved in service delivery
+may not possess---at least not in the myriad of technologies 
+
+%% Limited control over test execution environment
+
+Research Problem: Efficient and change-resilient test automation without good
+programming skills or deep tool knowledge (e.g., DOM representations in
+tools). Maintenance of test scripts by non-developers.
+
+No one technique of UI element identification is likely to be the best in all
+circumstances; therefore, the choice of the technique needs to be based on the
+requirements for testing (e.g., execution of scripts across browsers, across
+internationalized variants of application, etc.)
+
+Cross-browser testing; keeping up with browser upgrades, reduce reliance on
+DOM structure and attributes.
+
+Research direction
+
+Emphasize links to program synthesis: (1) basic generation of change-resilient
+method of identifying a UI element; (2) synthesis of custom functions based on
+some specification of user intent.
+
+Problem of test automation in the mobile app space. More diversity and
+fragmentation. Bigger problem: UI differences across app variants.
+
+Research Problem: Test planning and test design
+
+Research Problem: Test data provisioning. Privacy issues, dependence on client.
+
+Research Problem: Test management and optimization
+
+
+Work done in IBM, work done by others (in industry and academia), where do we
+see this topic going
