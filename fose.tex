@@ -1,7 +1,29 @@
 
 \documentclass{sig-alternate}
 
+\usepackage{amssymb}
+\usepackage{verbatim}
+\usepackage{times}
+\usepackage{graphicx}
 \usepackage{url}
+\usepackage{xspace}
+\usepackage{float}
+\usepackage{latexsym}
+\usepackage{natbib}
+\usepackage{alltt}
+\usepackage{color}
+\usepackage{textcomp}
+\usepackage{balance}
+
+\bibpunct{[}{]}{,}{n}{}{}
+
+\newcommand{\ie}{\textit{i.e.,} }
+\newcommand{\eg}{\textit{e.g.,} }
+
+\def\denseitems{
+  \itemsep1pt plus1pt minus1pt
+  \parsep0pt plus0pt
+  \parskip0pt\topsep0pt}
 
 \begin{document}
 
@@ -37,5 +59,11 @@ Abstract goes here.
 
 \input{intro}
 \input{testing}
+
+\bibliographystyle{abbrvnat}
+{\small
+\balance
+\bibliography{fose}
+}
 
 \end{document}

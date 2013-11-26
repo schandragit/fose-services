@@ -19,45 +19,95 @@ activities.
 %% (fixed capacity, outcome based). But perhaps this needs to be mentioned earlier
 %% as these modes are not particular to testing services.
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth, clip, trim = 20mm 133mm 55mm
+  18mm]{figs/testing-activities.pdf}
+\vspace*{-15pt}
+\caption{Typical testing activities performed in delivery of testing services.}
+\vspace*{-10pt}
+\label{fig:testing-activities}
+\end{figure}
+
 The nature of the activities performed in a testing-services engagement can vary
 from client to client; but, typically, the scope of work includes activities,
 such as test design, test-data creation, test automation, test execution, and
-test maintenance. These activities, of course, pertain to testing in general
-(whether performed in-house or in an outsourced manner), but there are factors
-that can add unique challenges in the setting of testing services. For instance,
-many of these activities can require specific skills in testing techniques/tools
-or coding expertise, which the average practitioner involved in service delivery
-may not possess---at least not in the myriad of technologies 
+test maintenance. Figure~\ref{fig:testing-activities} presents an overview of
+the commonly performed activities in the delivery of testing services. A
+delivery engagement might involve any subset of these activities. For example,
+delivery for a client might involve only manual test execution, or the scope of
+work may include test automation and test maintenance as well. In other cases,
+the scope of work may be even broader, encompassing test design and/or test
+planning. The nature of the test cases can also vary from functional tests to
+tests that focus on validating non-functional system properties, such as
+performance and security.
 
-%% Limited control over test execution environment
+The activities shown in Figure~\ref{fig:testing-activities}, of course, pertain
+to testing in general (whether performed in-house or in an outsourced manner),
+but there are factors that can add unique challenges in the setting of testing
+services. For instance, many of these activities can require specific skills in
+testing techniques/tools or coding expertise, which the average testing
+practitioner involved in service delivery may not possess. Second, some of the
+activities may need to be carried out in strict time-bound cycles and
+client-controlled test environments. Finally, the myriad of technologies that
+must be accommodated in the contexts of the IT systems of different clients adds
+another layer of complexity for service companies.
 
-Research Problem: Efficient and change-resilient test automation without good
-programming skills or deep tool knowledge (e.g., DOM representations in
-tools). Maintenance of test scripts by non-developers.
+\subsubsection{Test Planning}
+\label{sec:test-planning}
+
+\subsubsection{Test Design}
+\label{sec:test-design}
+
+Optimization of test cases using techniques such as combinatorial test design.
+
+\subsubsection{Test Data Generation}
+\label{sec:test-data}
+
+\input{testdata}
+
+\subsubsection{Test Automation}
+\label{sec:test-automation}
+
+The functional test cases created during test design are often stated informally
+in natural language. These tests are known as \textit{manual test cases}, which
+consist of a sequence of steps, intended for execution by a human on the
+application user interface.  Test automation is the activity of converting these
+test cases into test scripts or programs that perform the test steps
+mechanically.
+
+Although test automation is desirable (\eg for efficient and predictable test
+executions) and sometimes necessary (\eg to meet time-constrained regression
+schedules), creating \textit{robust} test scripts that can be used repeatedly in
+regression cycles is expensive. In essence, creating such scripts is
+time-consuming, involving a significant amount of coding, and requires expertise
+in test automation tools (\eg \cite{hpqtp,ibmrft,selenium}). In the context of
+service delivery, this poses the unique challenge: how can change-resilient test
+automation be performed efficiently by delivery personnel who may not possess
+good programming skills or deep tool knowledge?
+
+Moreover, test automation involves not only the one-time cost of creating the
+scripts, but also a recurring cost of maintaining the scripts in response to
+application changes and changes in the execution environment.
 
 No one technique of UI element identification is likely to be the best in all
 circumstances; therefore, the choice of the technique needs to be based on the
 requirements for testing (e.g., execution of scripts across browsers, across
 internationalized variants of application, etc.)
 
-Cross-browser testing; keeping up with browser upgrades, reduce reliance on
-DOM structure and attributes.
+Cross-browser testing: keeping up with browser upgrades, reduce reliance on DOM
+structure and attributes.
 
-Research direction
-
-Emphasize links to program synthesis: (1) basic generation of change-resilient
-method of identifying a UI element; (2) synthesis of custom functions based on
-some specification of user intent.
+Relate to program synthesis: (1) basic generation of change-resilient method of
+identifying a UI element; (2) synthesis of custom functions based on some
+specification of user intent.
 
 Problem of test automation in the mobile app space. More diversity and
 fragmentation. Bigger problem: UI differences across app variants.
 
-Research Problem: Test planning and test design
-
-Research Problem: Test data provisioning. Privacy issues, dependence on client.
-
-Research Problem: Test management and optimization
+\subsubsection{Test Maintenance}
+\label{sec:test-maintenance}
 
 
-Work done in IBM, work done by others (in industry and academia), where do we
-see this topic going
+
+
