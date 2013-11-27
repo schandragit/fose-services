@@ -1,0 +1,6 @@
+#!/bin/sh
+
+pdflatex fose
+bibtex fose
+pdflatex fose
+pdflatex fose
