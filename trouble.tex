@@ -1,0 +1,15 @@
+\section{Troubleshooting}
+
+One of the common forms of service engagements is application maintenance, where the expectation from the service provider is to take over a client's custom application and handle service requests for it.  Service requests come in the form of trouble ``tickets'': users of the applications can raise a ``ticket'', logging a problem they have been experiencing. This is similar to bug repositories such as Bugzilla, in which users of an open-source software can enter the details of a problem that they experience.  The main difference is that in typical software development in open-source communities, there is no obligation on the part of software maintainers to address the defects in a timely fashion. Likewise, even in a product setting, the development team can prioritize which defects they are going to address first.  In service context, the service provider is supposed to resolve the ticket in a timely manner, often under a service-level agreement. For example, a critical bug must be resolved within 6 hours, at risk of financial consequences for the provider. 
+
+Clearly, the efficiency which the service provider can resolve these tickets is a differentiating factor. For this reason, troubleshooting is a important research area for software services.
+
+Ticket resolution takes place in stages. At the front, customer facing level is what is called L1 support, which simple acknowledges the issue to the customer and assigns it to an internal queue. In simple cases, such as request for information, L1 support can provide ``help desk'' features. L2 support comes in when the ticket requires technical expertise to answer, but usually resolving the ticket entails no more than advising the customer of the right configuration, or a workaround, etc. Finally L3 support handles real defect, and resolving them typically involves fixing the code.
+
+(We can use a picture here.)
+
+L1 and L2 support can benefit from the techniques that we reviewed in the section on knowledge management.
+
+Here we describe some of the challenges in L3 ticket resolution.
+
+In the purest form, the troubleshooting problem (a.k.a. debugging) is this: 
