@@ -1,8 +1,6 @@
 
-\section{Research Direction: Testing and Troubleshooting}
+\section{Research Direction: Testing}
 \label{sec:testing-debugging}
-
-\subsection{Software Testing as a Service}
 
 Within the increasing demand for software development as a service,
 \textit{software testing as a service} has seen significant growth and adoption
@@ -53,20 +51,20 @@ client-controlled test environments. Finally, the myriad of technologies that
 must be accommodated in the contexts of the IT systems of different clients adds
 another layer of complexity for service companies.
 
-\subsubsection{Test Planning}
+\subsection{Test Planning}
 \label{sec:test-planning}
 
-\subsubsection{Test Design}
+\subsection{Test Optimization}
 \label{sec:test-design}
 
 Optimization of test cases using techniques such as combinatorial test design.
 
-\subsubsection{Test Data Generation}
+\subsection{Test Data Generation}
 \label{sec:test-data}
 
 \input{testdata}
 
-\subsubsection{Test Automation}
+\subsection{Test Automation}
 \label{sec:test-automation}
 
 The functional test cases created during test design are often stated informally
@@ -74,7 +72,8 @@ in natural language. These tests are known as \textit{manual test cases}, which
 consist of a sequence of steps, intended for execution by a human on the
 application user interface.  Test automation is the activity of converting these
 test cases into test scripts or programs that perform the test steps
-mechanically.
+mechanically. After creation, the automated test scripts can be executed in
+regression cycles without any human intervention.
 
 Although test automation is desirable (\eg for efficient and predictable test
 executions) and sometimes necessary (\eg to meet time-constrained regression
@@ -83,30 +82,156 @@ regression cycles is expensive. In essence, creating such scripts is
 time-consuming, involving a significant amount of coding, and requires expertise
 in test automation tools (\eg \cite{hpqtp,ibmrft,selenium}). In the context of
 service delivery, this poses the unique challenge: how can change-resilient test
-automation be performed efficiently by delivery personnel who may not possess
-good programming skills or deep tool knowledge?
+scripts be created efficiently by delivery personnel who may not possess good
+programming skills or deep tool knowledge?
 
-Moreover, test automation involves not only the one-time cost of creating the
-scripts, but also a recurring cost of maintaining the scripts in response to
-application changes and changes in the execution environment.
+%% Moreover, test automation involves not only the one-time cost of creating the
+%% scripts, but also a recurring cost of maintaining the scripts in response to
+%% application changes and changes in the execution environment.
 
-No one technique of UI element identification is likely to be the best in all
-circumstances; therefore, the choice of the technique needs to be based on the
-requirements for testing (e.g., execution of scripts across browsers, across
-internationalized variants of application, etc.)
+While script robustness is certainly relevant in the context of evolution of the
+application under test or its persistent data, it is also pertinent when a
+script needs to be executed on different platforms, execution environments, or
+application variants. For example, functional testing of web applications needs
+to be performed on different browsers to detect potential cross-browser
+incompatibility
+defects~\cite{Choudhary2010,Shauvik:2012,Choudhary:2013,Mesbah:2011}. Similarly,
+in the context of mobile applications, tests for a native mobile application
+would need to run the variants of the application for different platforms (\eg
+Android, iOS, BlackBerry). Ideally, in such situations, a robust test script
+should be agnostic to browser/platform-specific differences unless, of course,
+those differences are symptoms of application defects.
 
-Cross-browser testing: keeping up with browser upgrades, reduce reliance on DOM
-structure and attributes.
+\subsubsection*{Research Problem: Tackling Script Fragility}
 
-Relate to program synthesis: (1) basic generation of change-resilient method of
-identifying a UI element; (2) synthesis of custom functions based on some
-specification of user intent.
+The core problem that needs to be addressed in attempts to solve the
+script-fragility problem is how to locate user-interface (UI) elements in a
+reliable manner. In general, there are two broad categories of techniques for
+locating UI elements. The first category relies on the structure of the internal
+representation the UI~\footnote{\small In the context of web applications, this
+  internal representation is the Document Object Model (DOM).} and on internal
+attributes, such as IDs or names, of UI elements/widgets. Sample test automation
+tools in this category include IBM Rational Functional Tester~\cite{ibmrft}, HP
+QuickTest Professional (QTP)~\cite{hpqtp}, and
+Selenium~\cite{selenium}. Over-reliance on internal structures and attributes
+can make scripts fragile (\eg if the structure changes often or the attributes
+are generated dynamically) and, in particular, unreliable for execution across
+browsers and platforms.
 
-Problem of test automation in the mobile app space. More diversity and
-fragmentation. Bigger problem: UI differences across app variants.
+The second category of tools rely on image processing to locate UI elements;
+sample tools in this space include Eggplant~\cite{Eggplant} and
+Sikuli~\cite{Chang:2010, Yeh:2009}. These tools record a test script as a
+sequence of actions performed on images. During automation, the tester grabs a
+portion of the screen around the element of interest, specifies the ``hotspot''
+in this portion (the location where, \eg a click action would be performed), and
+specifies the image-similarity threshold to be used during test execution to
+locate the element. By being independent of internal structure and attributes,
+such tools are resilient to changes in the internal structure/attributes, but
+they are fragile in the presence of differences in visual rendering, say across
+browsers or application variants.
 
-\subsubsection{Test Maintenance}
+A third, and less-common, alternative to these approaches is to associate with a
+UI element a label in the vicinity of that element, and refer to the element via
+its associated label. This approach, which is used in the \textsc{ata} tool
+developed at IBM Research~\cite{thummalapenta:2012b, thummalapenta:2012a,
+  thummalapenta:2013a} and also supported by QTP~\cite{hpqtp}, can overcome the
+limitations of approaches that rely on internal structure or image
+processing. But, the currently available implementations of these approaches
+perform simple label associations (based on visual proximity only) and are
+inapplicable when ambiguous labels exist. Development of more powerful and
+generally applicable techniques for label association would be a fruitful
+direction of research.
+
+These approaches have different strengths and weaknesses; it is quite possible
+that no one approach turns out to be the best in all circumstances. For example,
+an image-based technique may outperform an internal-structure-based technique
+for cross-browser test execution; but, the converse would likely be true for
+test execution across internationalized variants of a web application. In
+practice, the choice of the technique would have to be tailored to the
+requirements of testing.  Development of tools that combine the approaches, and
+rigorous empirical studies that evaluate the resiliency of these approaches for
+different types of testing would be useful.
+
+%% Cross-browser testing: keeping up with browser upgrades, reduce reliance on DOM
+%% structure and attributes.
+
+\subsubsection*{Research Problem: Automated Test Adaptation}
+
+Test automation in the space of mobile applications faces the form\-idable
+challenge of high diversity, which occurs along multiple dimensions: many
+platforms, devices, web browsers (in the case of mobile web applications), and
+application variants. For instance a mobile application can have native, hybrid,
+and web variants; moreover, in the case of native and hybrid applications,
+different platform-specific and device-specific variants can exist.
+
+Efficiently testing an application across different combinations requires
+automation, but the automated test scripts must be self-adaptive. Native or
+hybrid mobile applications typically have variants that execute on different
+platforms (\eg Android, iOS, and BlackBerry) and different types of devices
+(phones or tablets). For some application variants, the UI layout and flow may
+be exactly the same, in which case a test script that has been recorded in a
+platform-agnostic script notation (\eg \cite{PerfectoScriptOnce}) on one
+application variant can be executed, without modification, on another
+variant. But, in more complicated cases, the UI layout and flow for the same
+scenario may differ across variants---as an archetypal example, the phone and
+tablet variants of a mobile application would typically support many common
+scenarios that are realized via different sequences of UI events. In such
+instances, can a script automated on the tablet variant be automatically adapted
+for execution on the phone variant? We believe there is scope for the
+development of new techniques that perform such adaptation, while ensuring that
+the intent of the test cases are preserved.
+
+%% Problem of test automation in the mobile app space. More diversity and
+%% fragmentation. Bigger problem: UI differences across app variants.
+
+\subsubsection*{Research Problem: Automated Test-Script Synthesis}
+
+The problem of converting manual test cases to automated test scripts can be
+looked upon as an instance of program synthesis~\cite{Gulwani:2010}.  Automated
+program synthesis addresses the problem of discovering a program that realizes a
+user intent. There are three dimensions of the synthesis problem: the form of
+user intent, the search space of programs, and the search
+technique~\cite{Gulwani:2010}. For instance, the user intent could be stated in
+different forms such as, natural language, input-output examples, logical
+relations between inputs and outputs, and demonstrations. In test automation,
+user intent is specified in the manual test steps, and the end goal is an
+automated script that realizes that intent.
+
+Recent work~\cite{thummalapenta:2012a} has attempted to automate the creation of
+test scripts from manual test steps, using a combination of natural-language
+processing and dynamic exploration of multiple flows via backtracking to search
+for the correct test script from the space of possible scripts. But, there are
+practical limitations to that technique. First, dynamic exploration of
+alternative flows in the application UI via backtracking can encounter problems,
+such as undoing persistent state updates during an exploration or finding
+disable UI elements that limit the scope of exploration. Addressing such
+problems is important for effective exploration of the space of possible test
+scripts.  Second, test automation can sometimes require the coding of custom
+functions; for example, a verification step in a test might require checking
+that the values in a drop-down list are sorted or that some value exists in a
+particular cell of a table. Currently, such code must be written
+manually. Automatic synthesis of such code based on appropriate specification of
+user intent would go a long way in automating the overall creation of test
+scripts.
+
+\subsection{Test Maintenance}
 \label{sec:test-maintenance}
+
+Although developing scripts in a change-resilient manner, as discussed in
+Section~\ref{sec:test-automation}, can reduce test-maintenance effort, it cannot
+totally eliminate maintenance. In particular, refactoring of the application
+GUI, such as splitting a web page into multiple tabbed pages, can break the flow
+of a test~\cite{thummalapenta:2013a}, which would occur irrespective of how
+robust the mechanism for locating UI elements is. Such changes require the test
+flow to be repaired, involving addition or deletion of test
+steps---automatically performing such repairs is beyond the capability many of
+existing GUI test repair techniques~\cite{Choudhary:2011, Grechanik:2009,
+  Memon:2008}. Proposals GUI-refactoring-driven test repair~\cite{Daniel2011}
+accommodate certain types of GUI refactorings (\eg replacing a radio box with a
+drop-down list), but not general flow repair.  Recent research has seen the
+development of repair techniques for broken GUI flows~\cite{Zhang2013},
+addressing some of the limitations of the older test-repair techniques, but
+there are opportunities for more research contributions on this topic.
 
 
 
