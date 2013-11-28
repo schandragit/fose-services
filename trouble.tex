@@ -12,4 +12,7 @@ L1 and L2 support can benefit from the techniques that we reviewed in the sectio
 
 Here we describe some of the challenges in L3 ticket resolution.
 
-In the purest form, the troubleshooting problem (a.k.a. debugging) is this: 
+In the purest form, the troubleshooting problem (a.k.a. debugging) is this: given the symptom of a defect, such as an incorrect output, how do you efficiently determine the fix to the code ?  We distinguish code level problems from architectural problems. Resolving architecture problems require a major transformation effort, outside the scope of troubleshooting.
+
+While troubleshooting is par for the course in software industry as a whole, things are a bit different for the services part. First, efficiency in troubleshooting is strongly linked to the bottom-line of the provider, and the companies compete on the basis of this efficiency. Second, service providers may not have long-term ownership of the application code. They often have to ramp up quickly, often without access to the developers who originally wrote the code. For these reasons, as important as tools for faster troubleshooting are for product developers, they are perhaps even more crucial for services companies.
+
