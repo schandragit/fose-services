@@ -59,6 +59,8 @@ another layer of complexity for service companies.
 
 Optimization of test cases using techniques such as combinatorial test design.
 
+Need for test clustering techniques for manual tests.
+
 \subsection{Test Data Generation}
 \label{sec:test-data}
 
@@ -108,11 +110,11 @@ The core problem that needs to be addressed in attempts to solve the
 script-fragility problem is how to locate user-interface (UI) elements in a
 reliable manner. In general, there are two broad categories of techniques for
 locating UI elements. The first category relies on the structure of the internal
-representation the UI~\footnote{\small In the context of web applications, this
-  internal representation is the Document Object Model (DOM).} and on internal
-attributes, such as IDs or names, of UI elements/widgets. Sample test automation
-tools in this category include IBM Rational Functional Tester~\cite{ibmrft}, HP
-QuickTest Professional (QTP)~\cite{hpqtp}, and
+representation of the UI~\footnote{\small In the context of web applications,
+  the internal UI representation is the Document Object Model (DOM).} and on
+internal attributes, such as IDs or names, of UI elements/widgets. Sample test
+automation tools in this category include IBM Rational Functional
+Tester~\cite{ibmrft}, HP QuickTest Professional (QTP)~\cite{hpqtp}, and
 Selenium~\cite{selenium}. Over-reliance on internal structures and attributes
 can make scripts fragile (\eg if the structure changes often or the attributes
 are generated dynamically) and, in particular, unreliable for execution across
@@ -150,7 +152,7 @@ test execution across internationalized variants of a web application. In
 practice, the choice of the technique would have to be tailored to the
 requirements of testing.  Development of tools that combine the approaches, and
 rigorous empirical studies that evaluate the resiliency of these approaches for
-different types of testing would be useful.
+different types of testing would make valuable research contributions.
 
 %% Cross-browser testing: keeping up with browser upgrades, reduce reliance on DOM
 %% structure and attributes.
@@ -177,62 +179,112 @@ scenario may differ across variants---as an archetypal example, the phone and
 tablet variants of a mobile application would typically support many common
 scenarios that are realized via different sequences of UI events. In such
 instances, can a script automated on the tablet variant be automatically adapted
-for execution on the phone variant? We believe there is scope for the
-development of new techniques that perform such adaptation, while ensuring that
-the intent of the test cases are preserved.
+for execution on the phone variant?
 
-%% Problem of test automation in the mobile app space. More diversity and
-%% fragmentation. Bigger problem: UI differences across app variants.
+The problem of test adaptation also shows up in the context of delivery
+involving packaged applications, such as SAP. Typically, the implementation of a
+packaged application for a client requires the customization of default data
+definitions, processes, user interfaces, etc. to the client's requirements. Such
+customizations modify the default flows available through the application UI,
+raising the question of whether test scripts can be automatically adapted to
+accommodate the changes.
+
+We believe there is scope for the development of new techniques that perform
+such test adaptation, across platforms, variants, and cutomizations, while
+ensuring that the intent of the test cases are preserved.
 
 \subsubsection*{Research Problem: Automated Test-Script Synthesis}
 
 The problem of converting manual test cases to automated test scripts can be
 looked upon as an instance of program synthesis~\cite{Gulwani:2010}.  Automated
 program synthesis addresses the problem of discovering a program that realizes a
-user intent. There are three dimensions of the synthesis problem: the form of
-user intent, the search space of programs, and the search
+given user intent. There are three dimensions of the synthesis problem: the form
+of user intent, the search space of programs, and the search
 technique~\cite{Gulwani:2010}. For instance, the user intent could be stated in
 different forms such as, natural language, input-output examples, logical
 relations between inputs and outputs, and demonstrations. In test automation,
-user intent is specified in the manual test steps, and the end goal is an
-automated script that realizes that intent.
+user intent is specified in the form of manual test steps, and the end goal is
+an automated script that realizes that intent.
 
 Recent work~\cite{thummalapenta:2012a} has attempted to automate the creation of
-test scripts from manual test steps, using a combination of natural-language
-processing and dynamic exploration of multiple flows via backtracking to search
-for the correct test script from the space of possible scripts. But, there are
-practical limitations to that technique. First, dynamic exploration of
-alternative flows in the application UI via backtracking can encounter problems,
-such as undoing persistent state updates during an exploration or finding
-disable UI elements that limit the scope of exploration. Addressing such
-problems is important for effective exploration of the space of possible test
-scripts.  Second, test automation can sometimes require the coding of custom
-functions; for example, a verification step in a test might require checking
-that the values in a drop-down list are sorted or that some value exists in a
-particular cell of a table. Currently, such code must be written
-manually. Automatic synthesis of such code based on appropriate specification of
-user intent would go a long way in automating the overall creation of test
-scripts.
+test scripts from manual test steps by combining natural-language processing
+with dynamic exploration of multiple flows via backtracking to search for the
+correct test script from the space of possible scripts. However, there are
+practical limitations of that technique: dynamic exploration of alternative
+flows in the application UI can encounter problems such as persistent state
+updates during an exploration that may have to be undone or disabled UI elements
+that limit the scope of exploration. Addressing these problems is important for
+effective dynamic exploration of the space of possible test scripts.
+
+Type-based program synthesis~\cite{Perelman:2012} and natural-language
+processing have also been applied for creating automation scripts for
+smartphones from natural-language descriptions of tasks~\cite{Le:2013}. Such
+approaches could also be leveraged for test automation. Creation of automated
+test scripts can often require the coding of custom functions; for example, a
+verification step in a test might require checking that the values in a
+drop-down list are sorted or that some value exists in a particular cell of a
+table. Currently, such code must be written manually. Automatic synthesis of
+such code, based on a specification of user intent, could go a long way in
+automating the overall creation of test scripts.
 
 \subsection{Test Maintenance}
 \label{sec:test-maintenance}
 
 Although developing scripts in a change-resilient manner, as discussed in
 Section~\ref{sec:test-automation}, can reduce test-maintenance effort, it cannot
-totally eliminate maintenance. In particular, refactoring of the application
-GUI, such as splitting a web page into multiple tabbed pages, can break the flow
-of a test~\cite{thummalapenta:2013a}, which would occur irrespective of how
-robust the mechanism for locating UI elements is. Such changes require the test
-flow to be repaired, involving addition or deletion of test
-steps---automatically performing such repairs is beyond the capability many of
-existing GUI test repair techniques~\cite{Choudhary:2011, Grechanik:2009,
-  Memon:2008}. Proposals GUI-refactoring-driven test repair~\cite{Daniel2011}
-accommodate certain types of GUI refactorings (\eg replacing a radio box with a
-drop-down list), but not general flow repair.  Recent research has seen the
-development of repair techniques for broken GUI flows~\cite{Zhang2013},
-addressing some of the limitations of the older test-repair techniques, but
-there are opportunities for more research contributions on this topic.
+totally eliminate maintenance. As an application evolves and its test suite
+grows in size, the suite can require maintenance to repair broken tests, remove
+obsolete tests, and eliminate any redundancies that creep into the suite.
 
+\subsubsection*{Research Problem: Automated Test-Flow Repair}
 
+Refactoring of the application GUI, such as splitting a web page into multiple
+tabbed pages, can break the flow of a test~\cite{thummalapenta:2013a}, which
+would occur irrespective of how robust the mechanism for locating UI elements
+is. Such changes require the test flow to be repaired, involving addition or
+deletion of test steps---automatically performing such repairs is beyond the
+capability many of existing GUI test repair techniques~\cite{Choudhary:2011,
+  Grechanik:2009, Memon:2008}.
 
+The problem of test-flow repair is similar to the problem of test adaptation
+across platforms and application variants, but there are differences that can
+influence the types of techniques that can be developed. In the case of
+test-flow repair, two \textit{versions} of the same application are available
+along with change information captured in version-management systems. Thus,
+static program-differencing techniques and analysis of change logs could be
+leveraged to guide flow repair. In contrast, for test adaptation across
+platforms, two \textit{variants} of the application, implemented in different
+programming languages (\eg Objective-C for iOS variants and Java for Android
+variants), would be available; thus, static-analysis techniques may not be
+readily applicable.
+
+Proposals for GUI-refactoring-driven test repair~\cite{Daniel2011} accommodate
+certain types of GUI refactorings (\eg replacing a radio box with a drop-down
+list), but do not as yet address general flow repair.  Recent research has seen
+the development of repair techniques for broken GUI flows~\cite{Zhang2013},
+addressing some of the limitations of the existing test-repair techniques, but
+there are opportunities for more research contributions on this topic---\eg
+through further investigation of techniques that combine static program analysis
+and dynamic GUI exploration.
+
+\subsubsection*{Research Problem: Reducing Redundancies in Test Scripts}
+
+Over time, as a suite of automated test scripts evolves, subtle redundancies can
+creep into it in the form of similar tests. Similar tests are not redundant by
+any measure; but, they contain many common actions that are executed repeatedly,
+which over a large test suite, can degrade execution time substantially.  We
+have seen that sometimes a service provider can inherit such test suites from
+another vendor, consisting of tens of thousands of tests, with significant
+opportunities for optimization of test execution.
+
+Recent work on the idea of merging similar tests to improve test execution time,
+while preserving the fault-detection capability of the original test suite, has
+shown promising initial results~\cite{Devaki:2013}. But, such techniques need
+further development and evaluation. For instance, test merging must take into
+account application evolution because changes in the application can invalidate
+some of the merging performed on the old application version. (This problem
+afflicts, in general, all techniques for test-suite reduction.)  Development of
+scalable and efficient techniques for automated test merging, that preserve
+fault-detection capability and are evolution-aware, can be a fruitful research
+direction.
 
