@@ -6,6 +6,13 @@
 	\label{fig-km}
 \end{figure*}
 
+\begin{figure*}
+	\center
+	\includegraphics[scale=0.4]{figs/codebook.png}
+	\caption{Project Network Example from Codebook}
+	\label{fig-codebook}
+\end{figure*}
+
 \section{Knowledge Management}
 \label{sec:km}
 
@@ -24,20 +31,18 @@ What kind of knowledge management systems do services organizations use today? W
 
 \subsubsection{Project Knowledge Management Systems} 
 
-\begin{figure*}
-	\center
-	\includegraphics[scale=0.4]{figs/codebook.png}
-	\caption{Project Network Example from Codebook}
-	\label{fig-codebook}
-\end{figure*}
-
-In context of distributed development projects such as Hipikat\cite{} and Codebook\cite{} have attempted to create knowledge management systems that can serve as project memories. The basic premise in both these systems is that people involved in the project should not be spending extra time authoring data for the knowledge base. Artifacts and other information being produced as part of SDLC should be enough to populate the database and derive useful information. Existing artifacts in the project such as code, requirements, bugs, communication serve as data in the repository. Artifacts are linked to each other via available traceability information e.g. a bug is linked to code files that we modified to fix it or communication that happened around the bug. Artifact to people relationships are created based on who created and/or modified an artifact. The project database is essentially a network of artifacts and people, an example is shown in Figure~\ref{fig-codebook}. The knowledge management system then provides capabilities to search based on textual content of the artifacts and further do regular language reachability queries on the network. The usage of these systems will become clear from following examples:
-\begin{itemize}
-\item \textit{(Example from Hipikat)} How will a software developer use information from the project memory about past modifications completed on the project to help them in a current modification task? \\\textit{Usage}: Given the modification request, developer identifies a set of keywords (s)he that summarize the issue he is handling and uses it to query the project database. If it's a bug report, developer can use the complete bug report to search the system. The system uses textual search to identify previous tasks similar to one the developer is working on now. Additionally it also suggests arifacts and people that are transitively linked to these textually similar results. A bug report returned in search result is linked to code files modified to fix the bug and developer who resolved the bug in past. The developer can flip through the search results to see if anything of interest comes up and use that information to solve current issue at hand. 
-\item \textit{(Example from Codebook)} How will a bug triager use project memory to assign the bug to correct software developer? \\
+In context of distributed development projects such as Hipikat\cite{} and Codebook\cite{} have attempted to create knowledge management systems that can serve as project memories. The basic premise in both these systems is that people involved in the project should not be spending extra time authoring data for the knowledge base. Artifacts and other information being produced as part of SDLC should be enough to populate the database and derive useful information. Existing artifacts in the project such as code, requirements, bugs, communication serve as data in the repository. Artifacts are linked to each other via available traceability information e.g. a bug is linked to code files that we modified to fix it or communication that happened around the bug. Artifact to people relationships are created based on who created and/or modified an artifact. The project database is essentially a network of artifacts and people, an example is shown in Figure~\ref{fig-codebook}. The knowledge management system then provides capabilities to search based on textual content of the artifacts and further do regular language reachability queries on the network. The usage of these systems will become clear from following examples.\\
+\\
+{\bf Example from Hipikat}\\
+\\
+\textit{Scenario}: How will a software developer use information from the project memory about past modifications completed on the project to help them in a current modification task? \\\textit{Usage}: Given the modification request, developer identifies a set of keywords (s)he that summarize the issue he is handling and uses it to query the project database. If it's a bug report, developer can use the complete bug report to search the system. The system uses textual search to identify previous tasks similar to one the developer is working on now. Additionally it also suggests arifacts and people that are transitively linked to these textually similar results. A bug report returned in search result is linked to code files modified to fix the bug and developer who resolved the bug in past. The developer can flip through the search results to see if anything of interest comes up and use that information to solve current issue at hand.\\
+\\
+{\bf Example from Codebook}\\
+\\ 
+\textit{Scenario}: How will a bug triager use project memory to assign the bug to correct software developer? \\
 \textit{Usage}: Given the bug, the triager does some initial investigation to identify what is the fault causing module. Once the module is identified (s)he identifies the owner of the module by checking on who has made the most number of changes to that module (code->change history-> people linkage) or who has fixed most bugs for that module and assigns the bug to that person.
-\end{itemize} 
-
+\\
+\\
 As is evident from above examples, the richness of the artifact to artifact to people graph determines how much knowledge is there in the system. So the biggest challenge here is getting complete end to end traceability between different formal artifacts and informal artifacts being produced during SDLC into the system. If different tools are used to author different artifacts such as using Microsoft Word to author requirements, CVS to maintain code and using emails to do discussions, then traceability creation and maintanence becomes a chore. However, in the recent years there has been increasing use of complete Application Lifecycle Management solutions such as \textit{Rational Team Concert}, \textit{SAP Solution Workbench}, \textit{Mylyn integrated CVS/SVN/Git/Jira}, that allow a project to manage all stages of the project---requirements, design, code, testing, task management---from a single tool. These ALM solutions make it easier for people to specify relationship between different artifacts as they are doing the work. E.g. a developer is assigned a work item in RTC, (s)he does discussion with project manager and architect on the work item from within the tool itself and then makes some code changes and attaches the change set to the work item.  When an ALM solution is getting used, then creating the project network is a matter of crawling the data from the ALM system. There have also been works that try to infer relationships between artifacts using potentially referential information\cite{}. For example, if making a code commit, the developer puts in a comment like \textit{Fixed Bug \#145}, then with high confidence the change is to fix \textit{Bug \#145} and corresponding edge between code file and bug report can be created. For retrieving information, the KMS provides search capabilities primarily based on textual similarity between query and content and ability to navigate through edges in the graph to derive additional insights. 
 
 \subsubsection{Organization Knowledge Management System}
