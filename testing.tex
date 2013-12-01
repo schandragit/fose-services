@@ -172,13 +172,13 @@ practice.
 \subsection{Test Automation}
 \label{sec:test-automation}
 
-The functional test cases created during test design are often stated informally
-in natural language. These tests are known as \textit{manual test cases}, which
-consist of a sequence of steps, intended for execution by a human on the
-application user interface.  Test automation is the activity of converting these
-test cases into test scripts or programs that perform the test steps
-mechanically. After creation, the automated test scripts can be executed in
-regression cycles without any human intervention.
+The functional test cases for enterprise applications are often stated
+informally in natural language. These tests are known as \textit{manual test
+  cases}, which consist of a sequence of steps, intended for execution by a
+human on the application user interface.  Test automation is the activity of
+converting these test cases into test scripts or programs that perform the test
+steps mechanically. After creation, the automated test scripts can be executed
+in regression cycles without any human intervention.
 
 Although test automation is desirable (\eg for efficient and predictable test
 executions) and sometimes necessary (\eg to meet time-constrained regression
@@ -186,7 +186,7 @@ schedules), creating \textit{robust} test scripts that can be used repeatedly in
 regression cycles is expensive. In essence, creating such scripts is
 time-consuming, involving a significant amount of coding, and requires expertise
 in test automation tools (\eg \cite{hpqtp,ibmrft,selenium}). In the context of
-service delivery, this poses the unique challenge: how can change-resilient test
+testing services, this poses the unique challenge: how can change-resilient test
 scripts be created efficiently by delivery personnel who may not possess good
 programming skills or deep tool knowledge?
 
@@ -267,22 +267,40 @@ challenge of high diversity, which occurs along multiple dimensions: many
 platforms, devices, web browsers (in the case of mobile web applications), and
 application variants. For instance a mobile application can have native, hybrid,
 and web variants; moreover, in the case of native and hybrid applications,
-different platform-specific and device-specific variants can exist.
-
-Efficiently testing an application across different combinations requires
-automation, but the automated test scripts must be self-adaptive. Native or
-hybrid mobile applications typically have variants that execute on different
-platforms (\eg Android, iOS, and BlackBerry) and different types of devices
-(phones or tablets). For some application variants, the UI layout and flow may
-be exactly the same, in which case a test script that has been recorded in a
+different platform-specific and device-specific variants can exist. Efficiently
+testing an application across different combinations requires automation, but
+the automated test scripts must be resilient across platforms and application
+variants. For some application variants, the UI layout and flow may be exactly
+the same, in which case a test script that has been recorded in a
 platform-agnostic script notation (\eg \cite{PerfectoScriptOnce}) on one
-application variant can be executed, without modification, on another
-variant. But, in more complicated cases, the UI layout and flow for the same
-scenario may differ across variants---as an archetypal example, the phone and
-tablet variants of a mobile application would typically support many common
-scenarios that are realized via different sequences of UI events. In such
-instances, can a script automated on the tablet variant be automatically adapted
-for execution on the phone variant?
+application variant can be executed, without modification, on another variant.
+But, in more complicated cases, the UI layout and flow for the same scenario may
+differ across variants.
+
+Recent work on mobile application testing has focused on recovering state models
+via random and/or directed application crawling, and using the state models to
+derive test cases systematically (\eg \cite{Amalfitano:2011, Amalfitano:2012,
+  Choi:2013, Hu:2011, Joorabchi:2012, Yang:2013}). Symbolic-execution-based
+approaches for test generation for mobile applications are also being
+investigated~\cite{Anand:2012, Mirzaei:2012}. The problem of automated test
+adaptation across application variants has not yet been investigated, but if
+suitable techniques can be developed, they could be useful generally more so in
+the context of testing services.
+
+%% Efficiently testing an application across different combinations requires
+%% automation, but the automated test scripts must be self-adaptive. Native or
+%% hybrid mobile applications typically have variants that execute on different
+%% platforms (\eg Android, iOS, and BlackBerry) and different types of devices
+%% (phones or tablets). For some application variants, the UI layout and flow may
+%% be exactly the same, in which case a test script that has been recorded in a
+%% platform-agnostic script notation (\eg \cite{PerfectoScriptOnce}) on one
+%% application variant can be executed, without modification, on another
+%% variant. But, in more complicated cases, the UI layout and flow for the same
+%% scenario may differ across variants---as an archetypal example, the phone and
+%% tablet variants of a mobile application would typically support many common
+%% scenarios that are realized via different sequences of UI events. In such
+%% instances, can a script automated on the tablet variant be automatically adapted
+%% for execution on the phone variant?
 
 The problem of test adaptation also shows up in the context of delivery
 involving packaged applications, such as SAP. Typically, the implementation of a
