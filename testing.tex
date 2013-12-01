@@ -46,10 +46,44 @@ but there are factors that can add unique challenges in the setting of testing
 services. For instance, many of these activities can require specific skills in
 testing techniques/tools or coding expertise, which the average testing
 practitioner involved in service delivery may not possess. Second, some of the
-activities may need to be carried out in strict time-bound cycles and
-client-controlled test environments. Finally, the myriad of technologies that
-must be accommodated in the contexts of the IT systems of different clients adds
-another layer of complexity for service companies.
+activities may need to be carried out in strict time-bound cycles (governed by
+service-level agreements) and client-controlled test environments. Finally, the
+myriad of technologies that must be accommodated in the contexts of the IT
+systems of different clients adds another layer of complexity for service
+companies.
+
+Thus, in the setting of testing services, with its unique characteristics and
+challenges, manual test creation, execution, and maintenance is still done quite
+often.  The main goal of introducing innovation in this setting is to bring
+automation and rigor to the testing tasks that are performed manually, sometimes
+in an ad-hoc manner, and are prone to human lapses.
+
+The testing research community has seen a long line of research (running into a
+few decades) developing automated techniques for a variety of testing
+problems---such as test-adequacy assessment, test-input generation, regression
+test selection, test augmentation, test prioritization, and test
+minimization---for imperative and object-oriented programs, and applicable to
+different types of systems (\eg component-based systems and web
+applications). For instance, there exists a large body of techniques for
+automated test-input generation (\eg ~\cite{Artzi:2011, Boyapati:2002, cadar08,
+  Clarke:1976, Ferguson:1996, godefroid05, Gross:2012, Harman:2010, king76jul,
+  korel90aug, Pacheco:2007, sen05, thummalapenta:2011, Tillmann:2005,
+  visser04}).  But, many of the techniques are inapplicable, or at least there
+are significant challenges in applying them, in the context of testing
+services. As already mentioned, most enterprise applications include a mix of
+languages and technologies; thus, the automated techniques must deal with this
+complexity. Second, in testing services, the vendor may often not have access to
+the source code of the applications under test; thus, program-analysis-based
+techniques, may be inapplicable. Third, many automated techniques---\eg much of
+the research on test-input generation---focus on unit testing, which is not in
+the scope of work in testing services (where the emphasis is on system-level
+testing).
+
+In the rest of this section, we discuss the testing activities shown in
+Figure~\ref{fig:testing-activities}. For each activity, we present a sample of
+relevant existing research and identify important unsolved (or partially solved)
+problems for which the development of new automated techniques would make
+valuable research contributions in the context of testing services.
 
 \subsection{Test Planning}
 \label{sec:test-planning}
@@ -83,18 +117,52 @@ questions, such as~\cite{Kagan:NextGenTesting}
 
 \end{itemize}
 
-One of the key challenges in test planning is standardizing and automating it,
-using data intelligence and forecasting. In the context of delivery, there is
-the opportunity of mining and leveraging data from hundreds of client projects
-to build benchmark data that can improve the accuracy of even the initial
-estimates in a project.
+One of the challenges in test planning is standardizing and automating it, using
+data intelligence and forecasting. The availability of appropriate data is
+central to accurate forecasting and construction of prediction models (\eg for
+defect prediction). While in a typical project, such data may be scarce
+initially, in the context of service delivery, there is the opportunity for the
+vendor to mine and leverage data from hundreds of client projects to build
+benchmark data that can improve the accuracy of even the initial estimates in a
+project. This is another instance of the problem of harvesting and leveraging
+organizational knowledge, across multiple client engagements, discussed
+earlier. In the context of test planning, we see further opportunities for
+research contributions in the types of data to be mined, anonymized, cataloged,
+linked, and reorganized for used in building accurate forecasting models for
+testing-related activities.
 
 \subsection{Test Optimization}
 \label{sec:test-design}
 
-Optimization of test cases using techniques such as combinatorial test design.
+In a testing-service engagement, a vendor often inherits the existing test cases
+for the applications under test, which may have been designed by another
+vendor. In fact, in large testing-services engagements, the number of such test
+cases can easily run into tens of thousands (sometimes even exceeding a couple
+of hundred thousand).  To make matters worse, often, the test cases are not
+automated; they are stored in unstructured and varying formats (\eg in
+plain-text documents or spreadsheets), and can contains redundancies. Thus, the
+vendor testing teams face the daunting task of taking stock of the available
+test cases, and understanding and optimizing them.
 
-Need for test clustering techniques for manual tests.
+Techniques for extracting relevant information about test cases (\eg test name,
+test steps, test prerequisites, expected outcome) from the diverse forms of
+natural-language descriptions, and techniques for clustering test cases (based
+on the natural-language descriptions of tests) would be extremely valuable in
+assisting testers in efficiently getting a good handle on a large corpora of
+unfamiliar test cases.
+
+Another task that testers have to perform is optimizing large suites by removing
+redundant tests while also ensuring good test diversity and
+coverage. Combinatorial test design (CTD)~\cite{Cohen:1996, Cohen:1997,
+  Cohen:2003} is a useful technique for performing such optimization. While CTD
+has its own issues, in the context of testing services, with the effort that
+goes in creating the required system models for an unfamiliar system---by
+identifying attributes and values (or points of variability), and
+restrictions---assuming that CTD models are created for a client system, a
+challenging unsolved problem is how to map the output of CTD (\ie a $t$-way
+covering array) to the existing test cases. This is a very tedious task, almost
+completely manually performed, for which tool support would be very valuable in
+practice.
 
 \subsection{Test Data Generation}
 \label{sec:test-data}
