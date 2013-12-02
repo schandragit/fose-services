@@ -178,7 +178,20 @@ informally in natural language. These tests are known as \textit{manual test
 human on the application user interface.  Test automation is the activity of
 converting these test cases into test scripts or programs that perform the test
 steps mechanically. After creation, the automated test scripts can be executed
-in regression cycles without any human intervention.
+in regression cycles without any human intervention. For example,
+Figure~\ref{fig:sample-test-case} shows a manual test case written in plain
+English (left) and the corresponding tool-agnostic automated test script
+(right).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth, clip, trim = 21mm 93mm 65mm
+  18mm]{figs/sample-test-case.pdf}
+\vspace*{-15pt}
+\caption{Sample manual test case and tool-agnostic script representation.}
+\vspace*{-10pt}
+\label{fig:sample-test-case}
+\end{figure}
 
 Although test automation is desirable (\eg for efficient and predictable test
 executions) and sometimes necessary (\eg to meet time-constrained regression
