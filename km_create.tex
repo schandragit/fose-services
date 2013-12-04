@@ -1,0 +1,46 @@
+
+\subsubsection{Knowledge Creation}
+
+What makes up the knowledge in a services organization? How can this content be collected and organized? These are some of the challenges in knowledge creation. The knowledge creation pipeline consists of getting the content (referred to as crawling), parsing the content in different formats into a standardized format, followed by extracting meta-data from the content that can help organize it (referred to as annotation). 
+
+\vskip -5pt
+\paragraph*{Crawling} The first challenge in building an OKMS system is identifying what data should
+be put in the repository and how to obtain the data. An organization has the
+option of mandating that each of it's employees contributes their learnings to
+the OKMS system. Some examples of manual knowledge creations are: (1) frequently
+asked question, where employee outlines the typical solutions to some common
+problem tickets they have resolved (2) postmortem reports, usage stories,
+experience reports\cite{desouza:2005}, that project members can create after
+they solve a key issue in the project. To enable solution reuse, services
+organizations often invest in creating software product families
+\cite{clements2002software}. However, here it's pre-anticipated what could be
+some solutions that could be of interest to multiple clients in a particular
+domain such as healthcare and then those solutions are created with appropriate
+points for variability built in, so solution can be customized for any client
+intending to use it.  Once a project is completed, employees are also encouraged
+to identify reusable components in software they created and share them in the
+knowledge base. This approach of manual content creation adds extra burden on
+the employees. An open research challenge is to motivate employees to contribute
+high quality content in the knowledge base \cite{hendriks1999share}. Open source
+forums such as stack exchange have experimented with elaborate incentive
+mechanisms in forms of badges to ensure questions and answer contributions on
+their forums \cite{vasilescu2014social}. In services organizations are
+reputation building incentives enough or incentives should translate to monetory
+benefits and/or career progression /cite{bartol2002encouraging}?
+
+Another approach for content creation is to auto-harvest artifacts produced in the SDLC lifecycle and put these in the knowledge management system. Complete traceability from requirement through code to test cases, along with their content is extractable from Application Lifecycle Management tools and this can act as solution packs to put in the repository. Similarly for ticket resolution, information about problem ticket and it's resolution is extractable from ticket management systems. Account teams periodically report on various important metrics on the applications being maintained in the client landscape such as ticket volumes, code changes, service improvement actions taken. These reports can be auto pushed into the knowledge repository. The main challenge here is handling the diversity of tools and technologies used to create SDLC data across projects. 
+
+\paragraph*{Parsing} Once all the requisite data has been pulled from various sources, the main challenge is parsing of the data from various document formats and templates into a standardized format that can be pushed into the knowledge repository. Many of the crawled data is in form of documents in proprietery formats such as Microsoft word, power point slides, visio diagrams, excel sheets. How to automate content extraction from client specific work products into the standard format used by knowledge repository is again a direction for research. One approach is to write model to model transforms where a project admin can specify the mapping \cite{debdoot:2010:scc}. Another challenge is that requisite traceability information that is required to understand complete context of how and why an artifact was produced, might be missing. This is because tools being used to create different SDLC artifacts have not been integrated. There is need to auto infer traceability between artifacts
+For example, if making a code commit, the developer puts in a comment like "Fixed Bug \#145", then with high confidence the change is to fix "Bug \#145" and traceability edge between code file and bug report should be auto-created. 
+. Tracability inference is an active area of research \cite{spanoudakis2005software}. Some proposed approaches use information retrieval (IR) techniques, others use traceability rules, special integrators, and inference axioms.
+
+\paragraph*{Annotation}
+
+The content put in the OKMS should be organized in such a way that retrieval becomes easier when someone needs it. The general practice is to classify OKMS content against pre-defined taxonomies. One taxonomy is obviously the object type i.e. requirement, code, problem ticket (further segmented into problem description, resolution). Another taxonomy captures the domain the artifact was produced in i.e. industry type and process area e.g. \cite{apqc,bph}. Another taxonomy is the technology used. Organizations spend effort building and maintaining these taxonomies. For every data that is put into the knowledge base, the content needs to be manually categorized against these pre-defined taxonomies. Pattern matching and machine learning based classification approaches /cite{bishop2006pattern} can be used to auto-categorize content to these pre-defined taxonomies. These techniques rely on the availability of equal proportion of positive and negative samples to train a learning model. However, due to unavailability of training data and/or lack of differentiating features, usual learning techniques such as naive bayes, support vector machines, decision trees, might end up not giving desired efficacy (measured as precision and recall). There is need to customize more advanced learning approaches such as adaptive learning, ensemble techniques or develop new techniques that work well with SDLC data. Another interesting area for research is to explore how to help grow the taxonomy over time based on content coming in the knowledge base. Techniques such as clustering \cite{Berkhin06}, topic modeling \cite{Blei:2012} help group together similar looking content and infer topics out of them. 
+
+The content in a OKMS database comes from various clients:. There are strict privacy constraints around what data is client confidential and hence cannot be shared. Within a single artifact itself, there might be small portions of content that are client confidential. E.g. a problem ticket might content the contact information of the user who encountered the information. How to remove client confidential data from artifacts put in the repository, how to anonimize the content so as to not disclose client identity and how to ensure that only authorized users and roles have access.
+
+Once an OKMS system is implemented in an organization, irrespective of the approach to collect content i.e. manual, automated harvesting or hybrid, the repository starts filling up fast. Over a period of one year, the problem ticket repository we setup within IBM collected 750K tickets. Similarly, the business process solution repository has 16000 solutions. However, not all content being put in the repository is high quality and reusable. Hence, it is becomes imperative to be able to filter out useless content. One way to achieve this is by making a human vet every content being pushed in the repository and only content that is deemed high quality is published. Another approach is to ask people who are retrieving and potentially using the content, give feedback on whether they found content useful or not. The third approach that makes for an interesting research direction is to explore how a an automatic quality score can be assiged to each artifact based on content in the artifact, prior reputation of people who authored the content, whether the project was a success or not and so on. In our problem ticket repository, we experimented with calculating a quality score per ticket based on technical versus non-technical content present in the ticket \cite{Majumdar:2011}.
+
+
+\paragraph*{Summary} To summarize, content creation in OKMS provides multiple oppurtunities where research can contribute. These include: what and how to extract content from SDLC repositories and proprietry document formats, how to infer traceability between different artifacts, how to classify and categorize content, how to maintain privacy, estimate quality and motivate employees to contribute high quality content. 
