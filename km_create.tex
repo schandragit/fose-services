@@ -1,34 +1,87 @@
 
 \subsubsection{Knowledge Creation}
 
-What makes up the knowledge in a services organization? How can this content be collected and organized? These are some of the challenges in knowledge creation. The knowledge creation pipeline consists of getting the content (referred to as crawling), parsing the content in different formats into a standardized format, followed by extracting meta-data from the content that can help organize it (referred to as annotation). 
+What constitutes useful knowledge in a service company? How can such knowledge
+be collected and organized? These are some of the questions that need to be
+addressed in knowledge creation. Specifically, we discuss three aspects of
+knowledge creation: \textit{crawling}, to collect content from diverse
+sources; \textit{parsing}, to translate the content in various formats into a
+standard format; and \textit{annotating}, to extract metadata from the content
+that can help organize it.
 
 \vskip -5pt
-\paragraph*{Crawling} The first challenge in building an OKMS system is identifying what data should
-be put in the repository and how to obtain the data. An organization has the
-option of mandating that each of it's employees contributes their learnings to
-the OKMS system. Some examples of manual knowledge creations are: (1) frequently
-asked question, where employee outlines the typical solutions to some common
-problem tickets they have resolved (2) postmortem reports, usage stories,
-experience reports\cite{desouza:2005}, that project members can create after
-they solve a key issue in the project. To enable solution reuse, services
-organizations often invest in creating software product families
-\cite{clements2002software}. However, here it's pre-anticipated what could be
-some solutions that could be of interest to multiple clients in a particular
-domain such as healthcare and then those solutions are created with appropriate
-points for variability built in, so solution can be customized for any client
-intending to use it.  Once a project is completed, employees are also encouraged
-to identify reusable components in software they created and share them in the
-knowledge base. This approach of manual content creation adds extra burden on
-the employees. An open research challenge is to motivate employees to contribute
-high quality content in the knowledge base \cite{hendriks1999share}. Open source
-forums such as stack exchange have experimented with elaborate incentive
-mechanisms in forms of badges to ensure questions and answer contributions on
-their forums \cite{vasilescu2014social}. In services organizations are
-reputation building incentives enough or incentives should translate to monetory
-benefits and/or career progression /cite{bartol2002encouraging}?
+\paragraph*{Crawling} The first activity in building an OKMS is
+identifying the data that should be stored in the repository and how to obtain
+the data. In general, this activity includes a combination of manually provided
+data and automatically crawled data, each of which can have its own peculiar
+challenges.
 
-Another approach for content creation is to auto-harvest artifacts produced in the SDLC lifecycle and put these in the knowledge management system. Complete traceability from requirement through code to test cases, along with their content is extractable from Application Lifecycle Management tools and this can act as solution packs to put in the repository. Similarly for ticket resolution, information about problem ticket and it's resolution is extractable from ticket management systems. Account teams periodically report on various important metrics on the applications being maintained in the client landscape such as ticket volumes, code changes, service improvement actions taken. These reports can be auto pushed into the knowledge repository. The main challenge here is handling the diversity of tools and technologies used to create SDLC data across projects. 
+For manual data collection, an organization can require its employees to
+contribute learnings and software artifacts to the OKMS. For instance, knowledge
+creation can be done via frequently asked questions, where employees outline the
+solutions to some common problem tickets they have resolved; alternatively, it
+could be done via postmortem reports, usage stories, and experience
+reports~\cite{desouza:2005} created by project members after the resolution of a
+key project issue. If a client solution involves software development, employees
+can be asked to identify reusable components in the software and contribute
+them, possibly after generalization, to the OKMS. Manual content creation puts
+extra burden on the employees, beyond their normal delivery-related
+responsibilities. Thus, an interesting research problem is how to motivate
+employees to contribute high-quality content to the
+OKMS~\cite{hendriks1999share}. Incentive mechanisms could include ``badges'' as
+is done in open-source forums such as stack exchange to encourage question and
+answer contributions. In a service company, would reputation-building incentives
+be sufficient or would monetary or career-growth incentives be
+necessary~\cite{bartol2002encouraging}?
+
+%% An organization has the option of mandating that each of it's employees
+%% contributes their learnings to the OKMS system. Some examples of manual
+%% knowledge creations are: (1) frequently asked question, where employee outlines
+%% the typical solutions to some common problem tickets they have resolved (2)
+%% postmortem reports, usage stories, experience reports\cite{desouza:2005}, that
+%% project members can create after they solve a key issue in the project. To
+%% enable solution reuse, services organizations often invest in creating software
+%% product families
+%% \cite{clements2002software}. However, here it's pre-anticipated what could be
+%% some solutions that could be of interest to multiple clients in a particular
+%% domain such as healthcare and then those solutions are created with appropriate
+%% points for variability built in, so solution can be customized for any client
+%% intending to use it.  Once a project is completed, employees are also encouraged
+%% to identify reusable components in software they created and share them in the
+%% knowledge base. This approach of manual content creation adds extra burden on
+%% the employees. An open research challenge is to motivate employees to contribute
+%% high quality content in the knowledge base \cite{hendriks1999share}. Open source
+%% forums such as stack exchange have experimented with elaborate incentive
+%% mechanisms in forms of badges to ensure questions and answer contributions on
+%% their forums \cite{vasilescu2014social}. In services organizations are
+%% reputation building incentives enough or incentives should translate to monetory
+%% benefits and/or career progression /cite{bartol2002encouraging}?
+
+In addition, or as an alternative, to manual content creation, content can be
+collected through automated crawling of the artifacts produced in a project. For
+example, complete traceability from requirements through code to test cases,
+along with relevant content, can be extracted from Application Lifecycle
+Management tools (\eg Rational Team Concert). Similarly, information about
+problem tickets and their resolutions can be extracted from ticket-management
+systems.  Account teams periodically report important metrics, such as ticket
+volumes, code changes, and service-improvement actions taken, on the client
+applications being maintained; such reports can be automatically pushed into the
+OKMS. The main challenge here is handling the diversity of tools and
+technologies used to create software artifacts and related information across
+projects.
+
+%% Another approach for content creation is to auto-harvest artifacts produced in
+%% the SDLC lifecycle and put these in the knowledge management system. Complete
+%% traceability from requirement through code to test cases, along with their
+%% content is extractable from Application Lifecycle Management tools and this can
+%% act as solution packs to put in the repository. Similarly for ticket resolution,
+%% information about problem ticket and it's resolution is extractable from ticket
+%% management systems. Account teams periodically report on various important
+%% metrics on the applications being maintained in the client landscape such as
+%% ticket volumes, code changes, service improvement actions taken. These reports
+%% can be auto pushed into the knowledge repository. The main challenge here is
+%% handling the diversity of tools and technologies used to create SDLC data across
+%% projects.
 
 \paragraph*{Parsing} Once all the requisite data has been pulled from various sources, the main challenge is parsing of the data from various document formats and templates into a standardized format that can be pushed into the knowledge repository. Many of the crawled data is in form of documents in proprietery formats such as Microsoft word, power point slides, visio diagrams, excel sheets. How to automate content extraction from client specific work products into the standard format used by knowledge repository is again a direction for research. One approach is to write model to model transforms where a project admin can specify the mapping \cite{debdoot:2010:scc}. Another challenge is that requisite traceability information that is required to understand complete context of how and why an artifact was produced, might be missing. This is because tools being used to create different SDLC artifacts have not been integrated. There is need to auto infer traceability between artifacts
 For example, if making a code commit, the developer puts in a comment like "Fixed Bug \#145", then with high confidence the change is to fix "Bug \#145" and traceability edge between code file and bug report should be auto-created. 
