@@ -83,13 +83,69 @@ projects.
 %% handling the diversity of tools and technologies used to create SDLC data across
 %% projects.
 
-\paragraph*{Parsing} Once all the requisite data has been pulled from various sources, the main challenge is parsing of the data from various document formats and templates into a standardized format that can be pushed into the knowledge repository. Many of the crawled data is in form of documents in proprietery formats such as Microsoft word, power point slides, visio diagrams, excel sheets. How to automate content extraction from client specific work products into the standard format used by knowledge repository is again a direction for research. One approach is to write model to model transforms where a project admin can specify the mapping \cite{debdoot:2010:scc}. Another challenge is that requisite traceability information that is required to understand complete context of how and why an artifact was produced, might be missing. This is because tools being used to create different SDLC artifacts have not been integrated. There is need to auto infer traceability between artifacts
-For example, if making a code commit, the developer puts in a comment like "Fixed Bug \#145", then with high confidence the change is to fix "Bug \#145" and traceability edge between code file and bug report should be auto-created. 
-. Tracability inference is an active area of research \cite{spanoudakis2005software}. Some proposed approaches use information retrieval (IR) techniques, others use traceability rules, special integrators, and inference axioms.
+\vskip -5pt
+\paragraph*{Parsing} After the data has been pulled from various
+sources, the next activity involves parsing the data from different document
+formats and templates into a standardized format that can be pushed into the
+knowledge repository. The diversity of formats, some of which may be
+proprietary, makes automated content parsing a challenging problem and a
+fruitful research direction. For instance, a possible approach could be based on
+writing model-to-model transforms~\cite{debdoot:2010:scc}. Another challenge is
+that the traceability information necessary for understanding the complete
+context of how and why an artifact was produced might be missing---for instance,
+between traceability code commits and bug reports. This occurs primarily because
+of lack of integration between the tools being used to create different
+artifacts. In such cases, automated analyses must be developed for inferring the
+traceability; this is an active area of research~\cite{spanoudakis2005software},
+with types of approaches, such as those based on information retrieval,
+traceability rules, special integrators, and inference axioms, being developed.
 
+%% \paragraph*{Parsing} Once all the requisite data has been pulled from various
+%% sources, the main challenge is parsing of the data from various document formats
+%% and templates into a standardized format that can be pushed into the knowledge
+%% repository. Many of the crawled data is in form of documents in proprietery
+%% formats such as Microsoft word, power point slides, visio diagrams, excel
+%% sheets. How to automate content extraction from client specific work products
+%% into the standard format used by knowledge repository is again a direction for
+%% research. One approach is to write model to model transforms where a project
+%% admin can specify the mapping \cite{debdoot:2010:scc}. Another challenge is that
+%% requisite traceability information that is required to understand complete
+%% context of how and why an artifact was produced, might be missing. This is
+%% because tools being used to create different SDLC artifacts have not been
+%% integrated. There is need to auto infer traceability between artifacts For
+%% example, if making a code commit, the developer puts in a comment like "Fixed
+%% Bug \#145", then with high confidence the change is to fix "Bug \#145" and
+%% traceability edge between code file and bug report should be auto-created.
+%% . Tracability inference is an active area of
+%% research \cite{spanoudakis2005software}. Some proposed approaches use
+%% information retrieval (IR) techniques, others use traceability rules, special
+%% integrators, and inference axioms.
+
+\vskip -5pt
 \paragraph*{Annotation}
-
-The content put in the OKMS should be organized in such a way that retrieval becomes easier when someone needs it. The general practice is to classify OKMS content against pre-defined taxonomies. One taxonomy is obviously the object type i.e. requirement, code, problem ticket (further segmented into problem description, resolution). Another taxonomy captures the domain the artifact was produced in i.e. industry type and process area e.g. \cite{apqc,bph}. Another taxonomy is the technology used. Organizations spend effort building and maintaining these taxonomies. For every data that is put into the knowledge base, the content needs to be manually categorized against these pre-defined taxonomies. Pattern matching and machine learning based classification approaches /cite{bishop2006pattern} can be used to auto-categorize content to these pre-defined taxonomies. These techniques rely on the availability of equal proportion of positive and negative samples to train a learning model. However, due to unavailability of training data and/or lack of differentiating features, usual learning techniques such as naive bayes, support vector machines, decision trees, might end up not giving desired efficacy (measured as precision and recall). There is need to customize more advanced learning approaches such as adaptive learning, ensemble techniques or develop new techniques that work well with SDLC data. Another interesting area for research is to explore how to help grow the taxonomy over time based on content coming in the knowledge base. Techniques such as clustering \cite{Berkhin06}, topic modeling \cite{Blei:2012} help group together similar looking content and infer topics out of them. 
+The content put in the OKMS should be organized in such a way that retrieval
+becomes easier when someone needs it. The general practice is to classify OKMS
+content against pre-defined taxonomies. One taxonomy is obviously the object
+type i.e. requirement, code, problem ticket (further segmented into problem
+description, resolution). Another taxonomy captures the domain the artifact was
+produced in i.e. industry type and process area e.g. \cite{apqc,bph}. Another
+taxonomy is the technology used. Organizations spend effort building and
+maintaining these taxonomies. For every data that is put into the knowledge
+base, the content needs to be manually categorized against these pre-defined
+taxonomies. Pattern matching and machine learning based classification
+approaches /cite{bishop2006pattern} can be used to auto-categorize content to
+these pre-defined taxonomies. These techniques rely on the availability of equal
+proportion of positive and negative samples to train a learning model. However,
+due to unavailability of training data and/or lack of differentiating features,
+usual learning techniques such as naive bayes, support vector machines, decision
+trees, might end up not giving desired efficacy (measured as precision and
+recall). There is need to customize more advanced learning approaches such as
+adaptive learning, ensemble techniques or develop new techniques that work well
+with SDLC data. Another interesting area for research is to explore how to help
+grow the taxonomy over time based on content coming in the knowledge
+base. Techniques such as clustering \cite{Berkhin06}, topic
+modeling \cite{Blei:2012} help group together similar looking content and infer
+topics out of them.
 
 The content in a OKMS database comes from various clients:. There are strict privacy constraints around what data is client confidential and hence cannot be shared. Within a single artifact itself, there might be small portions of content that are client confidential. E.g. a problem ticket might content the contact information of the user who encountered the information. How to remove client confidential data from artifacts put in the repository, how to anonimize the content so as to not disclose client identity and how to ensure that only authorized users and roles have access.
 
