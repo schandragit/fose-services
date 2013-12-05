@@ -465,10 +465,10 @@ beyond the capability many of existing GUI test repair
 techniques~\cite{Choudhary:2011, Grechanik:2009, Memon:2008}.
 
 Automated test-repair techniques have also been developed for unit
-tests~\cite{Daniel:2009, Daniel:2010, Mirzaaghaei:2012}, but they are relevant
-in the setting of test services for a couple of reasons pointed out earlier:
-unit testing is typically not in the scope of activities to be performed and
-program-analysis-based techniques are usually inapplicable.
+tests~\cite{Daniel:2009, Daniel:2010, Mirzaaghaei:2012}, but they are not
+relevant in the setting of testing services for a couple of reasons pointed out
+earlier: unit testing is typically not in the scope of activities to be
+performed and program-analysis-based techniques are usually inapplicable.
 
 %% The problem of test-flow repair is similar to the problem of test adaptation
 %% across platforms and application variants, but there are differences that can
@@ -500,10 +500,14 @@ subroutine; \eg the steps required to log in into a web site can be extracted
 out into a login subroutine~\cite{Mahmud:2010}.  Opportunities for procedural
 abstraction arise in test scripts, among other reasons, due to rampant
 cut-and-paste practices.  Refactoring makes a test suite easier to understand,
-and easier to maintain going forward. Somewhat unexpectedly, it can sometimes
+and easier to maintain going forward.  Somewhat unexpectedly, it can sometimes
 also help reduce the execution time of a test suite---\eg Devaki et
 al.~\cite{Devaki:2013} articulate criteria for merging multiple tests into one
 without loss of coverage.
+
+Further investigation of such techniques for improving test suites, that also
+preserve fault-detection capability and are evolution-aware, can be a fruitful
+research direction.
 
 %Over time, as a suite of automated test scripts evolves, subtle redundancies can
 %creep into it in the form of similar tests. Similar tests are not redundant by
