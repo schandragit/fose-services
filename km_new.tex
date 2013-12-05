@@ -17,12 +17,18 @@ teams, system knowledge---\eg expertise, dependencies, best practices---is
 spread across multiple people, locations, and (in the case of outsourcing) even
 organizations~\cite{Desouza:2006}. In such projects, a knowledge-management
 system is needed to create \textit{project memories} that can serve different
-needs. First, it should assist new team members in understanding the project
-with little or no face-to-face guidance and identifying experts to reach out to
-for questions. Second, the system should help existing team members identify the
-artifacts relevant, and the people they might need to coordinate with, for
-performing a task. Existing attempts at creating such project memories include
+needs, such as assisting new team members in identifying experts to reach out to
+for specific questions, or helping existing team members determine the relevant
+artifacts, and the people they might need to coordinate with, for performing a
+task. Existing attempts at creating such project memories include
 Hipikat~\cite{Murphy:2005} and Codebook~\cite{Begel:2010}.
+
+%% First, it should assist new team members in understanding the project with
+%% little or no face-to-face guidance and identifying experts to reach out to for
+%% questions. Second, the system should help existing team members identify the
+%% artifacts relevant, and the people they might need to coordinate with, for
+%% performing a task. Existing attempts at creating such project memories include
+%% Hipikat~\cite{Murphy:2005} and Codebook~\cite{Begel:2010}.
 
 A service company has a large, geographically distributed employee base, with
 frequent employee churn at project and organization levels. To maintain
@@ -33,11 +39,10 @@ resources. Driven by this need to gain competitive advantage in increasingly
 competitive markets, it becomes essential for companies to build
 \textit{organization memories} that store the collective knowledge of past
 engagements, processes, and people to increase productivity and reduce
-activities that ``reinvent the wheel.'' The intent behind such a system is to
-ensure that the knowledge of past or current employees is available to other
-employees when the need arises. Thus, the organization should be able to
-leverage learning and solutions from past client engagements in the context of a
-new similar engagement, even when members from the past projects are not around.
+activities that ``reinvent the wheel.'' Such a system can enable the
+organization to leverage learnings and solutions from past client engagements in
+the context of a new similar engagement, even when members from the past
+projects are not around.
 
 The need for organization-level knowledge bases is well established in the
 management literature~\cite{davenport2000working,bollinger2001managing}. Equally
@@ -82,17 +87,16 @@ under a service-level agreement. For example, a critical bug must be resolved
 within 6~hours, at risk of financial consequences for the provider.
 
 Software development in service organizations is not pure custom
-implementations. In many cases, packaged applications, such as SAP, Oracle, and
-COTS products, with client-specific customizations and external libraries are
+implementations---often, packaged applications, such as SAP, Oracle, and COTS
+products, with client-specific customizations and external libraries are
 used. The cause of a problem ticket could be in the customization done for the
 client, in the way external code is used, or even a bug in the external code. If
-the issue is with the configuration or the external code, it is very likely that
-the same (or a similar) issue has been resolved previously in the context of
-another client. Thus, if the person attempting to resolve the current ticket had
-access to previously resolved tickets addressing similar problems, they could be
-much more efficient and effective at their task.  Therefore, a knowledge base
-that stores past resolved tickets across clients would be a useful
-organization-wide resource. 
+the issue is with the configuration or the external code, it is likely that the
+same (or a similar) issue has been resolved previously for another client, and
+access to that information would make the people resolving the current ticket
+more efficient and effective at their task.  Therefore, a knowledge base that
+stores past resolved tickets across clients would be a useful organization-wide
+resource.
 
 In a way, such a knowledge base would be similar to public question-and-answer
 forums we see on various software languages, tools, and open-source projects on
@@ -101,27 +105,24 @@ the web.
 \subsubsection{Design-build Projects}
 
 Another common form of service engagement is business-process transformation,
-where the expectation from the service provider is to IT-enable a business
-process, such as payroll management, vendor management, order-to-cash, for a
+where the responsibility of the service provider is to IT-enable a business
+process, such as payroll management, vendor management, or order-to-cash, for a
 client. Some business processes (\eg payroll management) would be required by
-all clients, whereas other processes would be common in a particular domain (\eg
+all clients, whereas other processes would be common within a domain only (\eg
 claim-management process in the insurance domain).  The client expectation is
 that the service provider possesses adequate knowledge of the generic version of
 a particular process, creates client-specific variations, and implements the
-system. Typically, this requires that the vendor team working on the project has
-significant domain experience.
+system. Typically, this requires significant domain experience.
 
 A knowledge-management system that stores past business process implementations
-across the organization can help in this scenario. The past solutions need to be
-organized by domain to make retrieval of relevant information
-easier. Appropriate documentation that explains the standard and customized
-portions of past solutions needs to be available, along with the solution
-code. While designing a new business-process solution, the team can search
-through the repository to learn about the variations of the process to be
-implemented and, if the client requirements are not too different from a past
-solution, even reuse the solution in totality or parts. This can reduce the
-overall cost and also potentially let the service provider staff the team with
-people with less domain experience. 
+can help in this scenario. The past solutions need to be organized by domain for
+easy retrieval of relevant information. Appropriate documentation that explains
+the standard and customized portions of past solutions needs to be available,
+along with the solution code. While designing a new business-process solution,
+the team can search the repository to learn about variations of the process to
+be implemented and, if the client requirements are similar to a past solution,
+even reuse the solution in totality or parts. This can reduce the cost ans let
+let the service provider staff the team with people with less domain experience.
 
 Code reuse, at different levels of granularity---lines-of-code level, API level,
 and even complete solutions---has been an area of interest in the
@@ -130,42 +131,52 @@ could be applied in the setting of a service company too.
 
 \subsubsection{Service Improvement}
 
-When a client outsources its application maintanence to another organization,
-one of the key expectations is that the vendor would bring down their total cost
-of ownership over time. This requires the vendor to proactively seek out areas
-for improvement in the client application portfolio. One way to determine
-whether there is scope of improvement in an application in the client IT
-landscape is by benchmarking its performance against other similar applications
-in other client landscapes. To illustrate, suppose that a service company
-maintains the payroll applications for 10~clients. For nine of the clients, the
-monthly ticket volumes range between 5 and 10 tickets, whereas, for the
-remaining client (say client~A), the ticket volume ranges from 20 to 50. This
-indicates that, for client~A, investigations could be conducted to determine the
-root causes for high ticket volumes and appropriate preventive actions
-taken. Moreover, if a similar high-ticket-volume problem was seen in the past in
-another client's payroll system, information about the actions taken for that
-client could help the team resolve the problem for client~A.
+When a client outsources application maintenance to a vendor, one of the key
+expectations is that the vendor would bring down their total cost of ownership
+over time. This requires the vendor to seek out proactively areas for
+improvement in the client application portfolio. One way to do this is via
+benchmarking the performance of the client applications against similar
+applications in other client landscapes. To illustrate, suppose that a service
+company maintains the payroll applications for 10~clients. For nine of the
+clients, the monthly ticket volumes range between 5 and 10 tickets, whereas, for
+the remaining client (say client~A), the ticket volume ranges from 20 to
+50. This indicates that, for client~A, it may be worthwhile to investigate
+reasons for high ticket volumes and determine whether preventive actions can be
+taken. Moreover, if a similar problem was seen in the past in another client's
+payroll system, information about the actions taken for that client could help
+the team resolve the problem for client~A.
 
-There are a number of organizations that gather and report quantitative
-benchmark information (qualitiative as well as productivity) for software
-projects and business applications depending on language used to code, number of
-users etc. CAST, Software Engineering Institute are some examples of such
-organizations. However, considering services organizations are doing multiple
-software implementations for multiple clients, an organization-wide knowledge
-base that (1) captures key operational metrics per application (or at a more
-granular level, such as by problem area) per client and the past improvement
-actions taken, and (2) allows comparisons between clients with similar
-applications and problems encountered, would help augment what is publicly
-available and be more useful.
+Many organizations (\eg CAST, Software Engineering Institute) collect
+quantitative and qualitative benchmark information for software projects and
+business applications based on languages used, number of users, etc.  For a
+service company, which does software implementations for multiple clients, an
+organization-wide knowledge base that (1) captures key operational metrics per
+application (or by problem area) and the past improvement actions taken for each
+client, and (2) permits comparisons between clients with similar applications
+and problems encountered, would improve upon what is publicly available and be
+more useful.
 
-\begin{figure*}
+%% There are a number of organizations that gather and report quantitative
+%% benchmark information (qualitiative as well as productivity) for software
+%% projects and business applications depending on language used to code, number of
+%% users etc. CAST, Software Engineering Institute are some examples of such
+%% organizations. However, considering services organizations are doing multiple
+%% software implementations for multiple clients, an organization-wide knowledge
+%% base that (1) captures key operational metrics per application (or at a more
+%% granular level, such as by problem area) per client and the past improvement
+%% actions taken, and (2) allows comparisons between clients with similar
+%% applications and problems encountered, would help augment what is publicly
+%% available and be more useful.
+
+\begin{figure}[t]
 	\center
-	\includegraphics[scale=0.4]{figs/km.png}
-        \vspace*{-10pt}
-	\caption{System architecture for an OKMS system for a service company.}
+	\includegraphics[width=\columnwidth]{figs/km.png}
+        \vspace*{-18pt}
+	\caption{Activities involved and tasks performed in building and using
+          an OKMS system for a service company.}
         \vspace*{-10pt}
 	\label{fig-km}
-\end{figure*}
+\end{figure}
 
 \subsection{Research Topics}
 
@@ -176,8 +187,8 @@ business-process transformation~\cite{Goodwin:2012b}, and a system for sharing
 information about problem tickets across client
 engagements~\cite{Majumdar:2011}.
 
-We next discuss some core problems that need to be addressed in creating OKMS in
-service organizations. At the simplest level, an OKMS is a database where
+We next discuss some core problems that need to be addressed in creating an OKMS
+in service organizations. At the simplest level, an OKMS is a database where
 content can be stored and retrieved from. However, what content should be
 stored, how easily can the content be stored, and the ease with which relevant
 content can be retrieved determines the usefulness of an OKMS.
