@@ -492,21 +492,33 @@ and dynamic GUI exploration.
 
 \subsubsection*{Research topic: Reducing Redundancies in Test Scripts}
 
-Over time, as a suite of automated test scripts evolves, subtle redundancies can
-creep into it in the form of similar tests. Similar tests are not redundant by
-any measure; but, they contain many common actions that are executed repeatedly,
-which over a large test suite, can degrade execution time substantially.
-Sometimes, a service provider can inherit such test suites from another vendor,
-that have significant opportunities for optimization of test execution.
+Test scripts are software artifacts, and like other software artifacts, need to
+be refactored occasionally.  Procedural abstraction means
+identifying common and frequently occurring sequences of steps that can be
+extracted out as a subroutine; e.g. the steps required to log in into a web site
+can be extracted out into a login subroutine~\cite{Mahmood-Lau}.  Opportunities for procedural
+abstraction arise in test scripts, among other
+reasons, due to rampant cut-and-paste practices.  Refactoring makes a
+test suite easier to understand, and easier to maintain going forward. Somewhat
+unexpectedly, it can sometimes also help reduce the execution time of
+a test suite (e.g. Devaki et al.~\cite{Devaki:2013} articulate criteria for
+merging multiple tests into one without loss of coverage.)
 
-Recent work on the idea of merging similar tests to improve test execution time,
-while preserving the fault-detection capability of the original test suite, has
-shown promising initial results~\cite{Devaki:2013}. But, such techniques need
-further development and evaluation. For instance, test merging must take into
-account application evolution because changes in the application can invalidate
-some of the merging performed on the old application version. (This problem
-afflicts, in general, all techniques for test-suite reduction.)  Development of
-scalable and efficient techniques for automated test merging, that preserve
-fault-detection capability and are evolution-aware, can be a fruitful research
-direction.
+%Over time, as a suite of automated test scripts evolves, subtle redundancies can
+%creep into it in the form of similar tests. Similar tests are not redundant by
+%any measure; but, they contain many common actions that are executed repeatedly,
+%which over a large test suite, can degrade execution time substantially.
+%Sometimes, a service provider can inherit such test suites from another vendor,
+%that have significant opportunities for optimization of test execution.
+
+%Recent work on the idea of merging similar tests to improve test execution time,
+%while preserving the fault-detection capability of the original test suite, has
+%shown promising initial results~\cite{Devaki:2013}. But, such techniques need
+%further development and evaluation. For instance, test merging must take into
+%account application evolution because changes in the application can invalidate
+%some of the merging performed on the old application version. (This problem
+%afflicts, in general, all techniques for test-suite reduction.)  Development of
+%scalable and efficient techniques for automated test merging, that preserve
+%fault-detection capability and are evolution-aware, can be a fruitful research
+%direction.
 
