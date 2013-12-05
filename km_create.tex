@@ -66,7 +66,7 @@ resolutions can be extracted from ticket-management systems.  Account teams
 periodically report important metrics, such as ticket volumes, code changes, and
 service-improvement actions taken, on the client applications being maintained;
 these reports could be automatically pushed into the OKMS. The main challenge
-here is handling the diversity of tools and technologies used to create software
+here is extraction of this data from the diversity of tools and technologies used to create software
 artifacts and related information across projects.
 
 %% Another approach for content creation is to auto-harvest artifacts produced in
@@ -122,6 +122,21 @@ developed.
 %% information retrieval (IR) techniques, others use traceability rules, special
 %% integrators, and inference axioms.
 
+In service delivery, the OKMS is populated with data collected at client
+engagements and can include client-confidential and sensitive information (\eg a
+problem ticket might contain the contact information of the user). Thus, a
+critical requirement for the OKMS, which would benefit from automation, is
+cleansing or anonymization of all sensitive and client-confidential information.
+
+%% The content in a OKMS database comes from various clients:. There are strict
+%% privacy constraints around what data is client confidential and hence cannot be
+%% shared. Within a single artifact itself, there might be small portions of
+%% content that are client confidential. E.g. a problem ticket might content the
+%% contact information of the user who encountered the information. How to remove
+%% client confidential data from artifacts put in the repository, how to anonimize
+%% the content so as to not disclose client identity and how to ensure that only
+%% authorized users and roles have access.
+
 \vskip -5pt
 \paragraph*{Annotating}
 The content in the OKMS must be organized for easy retrieval. The general
@@ -141,10 +156,10 @@ classification approaches~\cite{bishop2006pattern} could be used.  The
 effectiveness of these techniques depends on the availability of positive and
 negative samples to train a learning model. Often, due to unavailability of
 training data and/or lack of differentiating features, usual learning techniques
-such as na\"{\i}ve bayes~\cite{}, support vector machines~\cite{}, and decision
-trees~\cite{}, do not attain sufficient precision and recall. Thus, there is a
-need to customize more advanced learning approaches (\eg adaptive learning and
-ensemble techniques~\cite{}) or develop new techniques that are more effective
+such as na\"{\i}ve bayes, support vector machines, and decision
+trees, do not attain sufficient precision and recall. Thus, there is a
+need to customize more advanced learning approaches (\eg
+ensemble techniques~\cite{Dietterich:2000}) or develop new techniques that are more effective
 on the typical data available in service delivery.
 
 %% One taxonomy is obviously the object type i.e. requirement, code,
@@ -168,20 +183,6 @@ on the typical data available in service delivery.
 %% clustering \cite{Berkhin06}, topic modeling \cite{Blei:2012} help group together
 %% similar looking content and infer topics out of them.
 
-In service delivery, the OKMS is populated with data collected at client
-engagements and can include client-confidential and sensitive information (\eg a
-problem ticket might contain the contact information of the user). Thus, a
-critical requirement for the OKMS, which would benefit from automation, is
-cleansing or anonymization of all sensitive and client-confidential information.
-
-%% The content in a OKMS database comes from various clients:. There are strict
-%% privacy constraints around what data is client confidential and hence cannot be
-%% shared. Within a single artifact itself, there might be small portions of
-%% content that are client confidential. E.g. a problem ticket might content the
-%% contact information of the user who encountered the information. How to remove
-%% client confidential data from artifacts put in the repository, how to anonimize
-%% the content so as to not disclose client identity and how to ensure that only
-%% authorized users and roles have access.
 
 The data in an OKMS can quickly grow very large. For example, in just a year, a
 problem ticket repository we setup in IBM grew to contain 750,000 tickets;
