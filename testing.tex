@@ -36,7 +36,7 @@ test-data creation, test automation, test execution, and test maintenance.
 Figure~\ref{fig:testing-activities} presents an overview of
 the commonly performed activities in testing services. 
 A particular engagement might involve any subset of these activities; for example,
-tesing for a client might involve only test execution, with the other
+tesing for a client could involve only test execution, with the other
 activities done by the client or by other vendors.  
 %% The nature of
 %% the test cases can also vary from functional tests to tests that focus on
@@ -52,23 +52,23 @@ for a variety of reasons, testing services remains largely a labor-intensive
 business.  For example, manual testing of GUI-based applications is surprisingly
 common, and testers routinely make up test data without methodical analysis.
 
-Here are some of the reasons testing services is labor intensive.  First is that
-the automated techniques available today do not necessarily hold up to enterprise
-applications, which include a heteregenous mix of languages and technologies, and
-for which requirements are written in prose by business analysts.
-Second, none of the techniques that require source code analysis or inspection
-are typically applicable because the vendor offering testing services is given
-only ``black box'' access to the system under test.  Third, deliverables of testing
-activity must be shown rather quickly (because revenues for the vendor are
-tied to deliverables), and a long investment in time and money that
-is needed in deployment of a tool is rarely tolerated either by the vendor or the
-client.  A related reason is that the supply of labor that can deliver testing services 
-has hitherto been plentiful and affordable, reducing the economic motivation to invest 
-in tools.
+Here are some of the reasons testing services is labor intensive.  First, the
+automated techniques available today do not necessarily hold up to enterprise
+applications, which include a heterogeneous mix of languages and technologies,
+and for which requirements are written in prose by business analysts.  Second,
+none of the techniques that require source code analysis or inspection are
+typically applicable because the vendor offering testing services is given only
+``black box'' access to the system under test.  Third, deliverables of testing
+activity must be shown rather quickly (because revenues for the vendor are tied
+to deliverables), and a long investment in time and money that is needed in
+deployment of a tool is rarely tolerated either by the vendor or the client.  A
+related reason is that the supply of labor that can deliver testing services has
+hitherto been plentiful and affordable, reducing the economic motivation to
+invest in tools.
 
-The only ``testing'' tools that are routine in use in testing services are test management 
-and reporting tools that help keep track of which tests have been run (often manually) along with
-their outcomes.
+The only ``testing'' tools that are routinely used in testing services are test
+management and reporting tools that help keep track of the tests that have been
+run (often manually) and their outcomes.
 
 However, given the growth in testing services, it is inevitable that it needs to move from
 a labor intensive business to an assets and tools-based business.  Therefore, 
@@ -130,7 +130,7 @@ evolves into micro planning as the project proceeds---and the test plan needs to
 be continuously refined during the course of a project as more accurate
 information becomes available.
 
-\subsubsection*{Research topic: ROI on Testing}
+\subsubsection*{Research Topic: ROI on Testing}
 
 Test planning is intended not only to guide all downstream testing activities,
 including test design, test execution, test-data and test-environment
@@ -153,15 +153,16 @@ questions, such as~\cite{Kagan:NextGenTesting}
 
 \end{itemize}
 
-It has long been believed that more the testing, less the likelihood of defects escaping
-to the field, and yet there is a point of diminishing return at which it is no longer 
-cost effective to invest in testing.  However, this judgment is
-made mostly on intuition.  Little is available to managers by way of quantititive techniques
-to balance the cost and benefit of continued testing.  Therefore, one of the
-research problems is to mine historical project data across a number of projects
-to formulate techniques for balancing the cost of testing with the return that it 
-provides in terms of risk reduction.  Li and Boehm (http://dl.acm.org/citation.cfm?id=2486061) 
-have recently presented an approach to prioritize tests based on their business value.
+It has long been believed that more the testing, less the likelihood of defects
+escaping to the field, and yet there is a point of diminishing return at which
+it is no longer cost effective to invest in testing.  However, this judgment is
+made mostly on intuition.  Little is available to managers by way of
+quantititive techniques to balance the cost and benefit of continued testing.
+Therefore, one of the research problems is to mine historical project data
+across a number of projects to formulate techniques for balancing the cost of
+testing with the return that it provides in terms of risk reduction.  Li and
+Boehm~\cite{Li:2013} have recently presented an approach to prioritize tests
+based on their business value.
 
 %One of the challenges in test planning is standardizing and automating it, using
 %data intelligence and forecasting. The availability of appropriate data is
@@ -177,7 +178,7 @@ have recently presented an approach to prioritize tests based on their business 
 %and organized for use in building accurate prediction models for testing-related
 %activities.
 
-\subsubsection*{Research topic: Efficient Test Optimization}
+\subsubsection*{Research Topic: Efficient Test Optimization}
 
 In a testing-service engagement, a vendor can inherit existing test cases,
 possibly designed by another vendor, for the applications under test. In fact,
@@ -199,29 +200,29 @@ test cases.
 %Techniques from natural-language-processing and machine-learning
 %communities can be profitably leveraged toward solving these problems.
 
-Since it is generally infeasible to run such a large number of tests in each
-regression cycle, testers must decide which tests to run.  And despite the
-size, a test suite may not give a balanced coverage of the application.
-Thus, techniques are needed to select test scenarios systematically.  
+Because it is generally infeasible to run such a large number of tests in each
+regression cycle, testers must decide which tests to run---and despite the size,
+a test suite may not give a balanced coverage of the application.  Thus,
+techniques are needed to select test scenarios systematically.
 
-One such technique---used extensively at IBM---is combinatorial test design 
-(CTD)~\cite{Cohen:1996, Cohen:1997, Cohen:2003}.
-With CTD, first an application's behavior is modeled in terms of key attributes,
-and points of variability of each attribute are determined. Then, an algorithm
-systematically generates combinations of attribute-values that should be exercised.
-CTD manages combinatorial explosion in a principled way, e.g. by testing only
-every 2-way combinations of attributes-values.  However, use of CTD requires high domain expertise
-and modeling skill, which is an inhibitor to its broad adoption.  Effective tool 
-support for simplifying modelconstruction~\cite{Segall:2012a}, iteratively refining
+One such technique---used extensively at IBM---is combinatorial test design
+(CTD)~\cite{Cohen:1996, Cohen:1997, Cohen:2003}.  With CTD, first an
+application's behavior is modeled in terms of key attributes, and the points of
+variability of each attribute are determined. Then, an algorithm systematically
+generates combinations of attribute-values that should be exercised.  CTD
+manages combinatorial explosion in a principled way, \eg by testing only 
+2-way combinations of attribute-values.  However, the use of CTD requires high
+domain expertise and modeling skill, which is an inhibitor to its broad
+adoption.  Effective tool support for simplifying model
+construction~\cite{Segall:2012a}, iteratively refining
 models~\cite{Segall:2012b}, and debugging models~\cite{Farchi:2013} is an active
 area of research, with scope for more contributions, \eg in supporting model
-maintenance and evolution.  
+maintenance and evolution.
 %%Assuming that accurate CTD models can be created for a client system, a
 Another challenging unsolved problem is how to map the output of CTD 
 %(\ie a $k$-way covering array) 
-to the existing test cases. This is a very tedious task, almost
-completely manually performed, for which tool support would be very valuable in
-practice.
+to existing test cases. This is a very tedious task, almost completely manually
+performed, for which tool support would be very valuable.
 
 %Another task that testers have to perform is optimizing large test suites by
 %removing redundant tests while ensuring good test diversity and
@@ -285,7 +286,7 @@ programming skills or deep tool knowledge?
 %% scripts, but also a recurring cost of maintaining the scripts in response to
 %% application changes and changes in the execution environment.
 
-\subsubsection*{Research topic: Creating Robust Test Scripts}
+\subsubsection*{Research Topic: Creating Robust Test Scripts}
 
 The core problem that needs to be addressed in creating robust test scripts is
 how to locate UI elements in a reliable manner. Moreover, there are different
@@ -386,7 +387,7 @@ and flow for the same scenario may differ across variants.
 %perform such test adaptation, across platforms, variants, and cutomizations,
 %while ensuring that the intent of the test cases are preserved.
 
-\subsubsection*{Research topic: Automated Test-Script Synthesis}
+\subsubsection*{Research Topic: Automated Test-Script Synthesis}
 
 The problem of converting manual test cases to automated test scripts can be
 looked upon as an instance of program synthesis~\cite{Gulwani:2010}.  Program
@@ -431,7 +432,7 @@ to changed requirements or business rules, or it could occur in the form of code
 refactoring. In either case, these pose challenges in keeping a test suite
 up-to-date.
 
-\subsubsection*{Research topic: Identifying Obsolete Tests}
+\subsubsection*{Research Topic: Identifying Obsolete Tests}
 
 When an application is modified to accommodate changed requirements, it can be
 hard to identify which test cases have become obsolete.  In general, a test
@@ -452,7 +453,7 @@ of more powerful techniques that possibly take into account changes in
 specifications and that are more generally applicable (\eg for system-level GUI
 tests) is a challenging but promising research direction.
 
-\subsubsection*{Research topic: Automated Test-Flow Repair}
+\subsubsection*{Research Topic: Automated Test-Flow Repair}
 
 If a failure results from a broken test, the test needs to be repaired.  For
 example, refactoring of the application GUI, such as splitting a web page into
@@ -490,19 +491,19 @@ there are opportunities for more research contributions on this topic---\eg
 through further investigation of techniques that combine static program analysis
 and dynamic GUI exploration.
 
-\subsubsection*{Research topic: Reducing Redundancies in Test Scripts}
+\subsubsection*{Research Topic: Reducing Redundancies in Test Scripts}
 
 Test scripts are software artifacts, and like other software artifacts, need to
-be refactored occasionally.  Procedural abstraction means
-identifying common and frequently occurring sequences of steps that can be
-extracted out as a subroutine; e.g. the steps required to log in into a web site
-can be extracted out into a login subroutine~\cite{Mahmood-Lau}.  Opportunities for procedural
-abstraction arise in test scripts, among other
-reasons, due to rampant cut-and-paste practices.  Refactoring makes a
-test suite easier to understand, and easier to maintain going forward. Somewhat
-unexpectedly, it can sometimes also help reduce the execution time of
-a test suite (e.g. Devaki et al.~\cite{Devaki:2013} articulate criteria for
-merging multiple tests into one without loss of coverage.)
+be refactored occasionally.  Procedural abstraction means identifying common and
+frequently occurring sequences of steps that can be extracted out as a
+subroutine; \eg the steps required to log in into a web site can be extracted
+out into a login subroutine~\cite{Mahmud:2010}.  Opportunities for procedural
+abstraction arise in test scripts, among other reasons, due to rampant
+cut-and-paste practices.  Refactoring makes a test suite easier to understand,
+and easier to maintain going forward. Somewhat unexpectedly, it can sometimes
+also help reduce the execution time of a test suite---\eg Devaki et
+al.~\cite{Devaki:2013} articulate criteria for merging multiple tests into one
+without loss of coverage.
 
 %Over time, as a suite of automated test scripts evolves, subtle redundancies can
 %creep into it in the form of similar tests. Similar tests are not redundant by
