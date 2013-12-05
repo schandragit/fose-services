@@ -1,0 +1,216 @@
+
+\subsubsection{Knowledge Retrieval}
+
+Challenges in knowledge retrieval are related to the search capabilities offered
+by the OKMS and the effort required from users in determining the usefulness of
+the recommended data. We discuss the following aspects of knowledge retrieval:
+indexing and searching, search result organization, and advanced analytics.
+
+\paragraph*{Indexing and Searching} The simplest approach for searching
+is \textit{keyword-based search}, in which users specify the words they are
+looking for and the system returns all artifacts that contain the specified
+words. More sophisticated systems use \textit{faceted search}, where the user
+can navigate a hierarchical structure (\eg a taxonomy) and select values from
+predefined categories.  Despite the availability of many search technologies,
+studies (\eg \cite{idc,idc2}) have shown that retrieval of relevant information
+from organizational repositories remains challenging, with users being
+successful in less than 50\% of their attempts in searching for information.
+
+Language-based information-retrieval techniques~\cite{manning2008introduction},
+on which many knowledge systems are based, may be inadequate in dealing with the
+types of repositories we are talking about---that contain not just a collection
+of artifacts, but a network of linked artifacts.  Graph databases for storage
+and semantic search techniques~\cite{Guha:2003} or extending keyword search for
+graphs~\cite{kacholia2005bidirectional} may be more promising in this scenario,
+and are worthy of research investigation.
+
+%% \paragraph*{Index and Search} Indexing is how the knowledge repository stores
+%% data internally. Search features then work on this index.  Typical ways to
+%% retrieve content from a knowledge base are: (1) keyword based search where user
+%% specifies a couple of words (s)he is looking for and all artifacts in the
+%% repository that contain the words from user query are returned, (2) faceted (or
+%% navigational) search where user is shown a hierarchy structure (taxonomy) and
+%% can browse information by choosing one or more values from each of the
+%% pre-defined categories. Various language based information retrieval
+%% models \cite{manning2008introduction} such as vector space models, probablistic
+%% models, latent semantic index exist that can be used here. But inspite of easy
+%% to use search technologies being available, prior studies report that knowledge
+%% retrieval from organization wide repositories remains a challenge. As
+%% per \cite{idc,idc2}, while employees spend 15\% to 35\% of their time searching
+%% for information in an enterprise, they are successful less than 50\% of the time
+%% in finding what they are looking for. Most existing OKMS systems use language
+%% based IR models to store and retrieve knowledge. However, as we saw in content
+%% creation section, the repository is not just a collection of artifacts but a
+%% network of linked artifacts. Use of graph databases for data storage and
+%% retrieval techniques such as semantic search techniques \cite{Guha:2003} or
+%% optimizing keyword search for graphs \cite{kacholia2005bidirectional}, are worth
+%% exploring.
+
+An important factor in performing accurate search is the expressiveness of query
+construction. Simple keyword queries, consisting of a set of words, may not be
+discriminative enough to return accurate results. A few approaches have been
+developed to address this problem, for example, by giving more weights to words
+that appear in the title of a problem ticket than words that appear in the
+ticket description~\cite{Sinha:2012}, and using separate queries for different
+types of information, such as description, application information, and stack
+trace, in a problem ticket~\cite{Ashok:2009}.
+
+Another question pertains to assigning weights to clauses in the query while
+ranking the search results~\cite{Debdoot:2011:bpm}. Moreover, the idea
+of \textit{contextual search}~\cite{wen2004probabilistic,kraft2005q}, which
+attempts to capture the user's information needs better by augmenting the query
+with contextual information extracted from search context, has shown promising
+results. Further research along these directions---in the context of the
+knowledge needs in service delivery---investigating different ways of creating
+contexts, using contexts in constructing queries, and assigning weights to query
+clauses would be interesting.
+
+%% Non-availability of content or poorly organized content can be one reason for
+%% this. Another reason could be the inadequacy of the query itself that are used
+%% to retrive the content. Suppose a user is trying to find problem tickets that
+%% resolved similar issues to what (s)he has been assigned. (S)he would pick up a
+%% couple of words from the ticket that describe the problem and use it to query
+%% the knowledge base. However, these words might not be discriminative enough and
+%% user might end up getting too many or too little search hits. Another approach
+%% could be to use complete content in the ticket and use it as query. However in
+%% this case, the search engine might end up returning irrelevant results as equal
+%% weightage was given to all words in the problem ticket. \cite{Sinha:2012} tries
+%% to address this issue by giving more weightage to those words in the query that
+%% belong to ticket title. \cite{Ashok:2009} parses out different datatypes from a
+%% problem ticket such as description, application information, stack trace and
+%% using a different query/search mechanism for each. E.g. instead of just
+%% specifying "null pointer exception", the query generated from a problem ticket
+%% could be---description: contains following bag of words \{null, pointer,
+%% exception\}, process: is equal to "order to cash", stack trace: contains
+%% foo.*bar. The results obtained from such a query are likely to be more precise
+%% than what a keyword search would yield. A challenge with this approach is how to
+%% compose the various clauses in the query---are they "anded" or "ored" or a
+%% combination. Another challenge is how much weightage to give to each clause when
+%% ranking the search results \cite{Debdoot:2011:bpm}. Moreover, recently
+%% contextual search \cite{wen2004probabilistic,kraft2005q} has been gaining
+%% momentum. Contextual search tries to better capture a user's information need by
+%% augmenting the query with contextual information extracted from search
+%% context. It would be an interesting direction for future research to see for
+%% each of the knowledge needs in services organizations, what can make up the
+%% context, how to use this context to create the query and how to weigh different
+%% clauses in the query.
+
+\paragraph*{Search Result Organization}
+Although more powerful querying capabilities can help improve the accuracy of
+search results, a search-based system would in general return multiple
+results. The next question then is: how much effort does it take for the user to
+sift through the results to find relevant information? Simple approaches such as
+highlighting matching keywords will not work for complex queries; more
+sophisticated techniques that help the user easily comprehend the relevance of
+the results are needed. One such approach is \textit{summarization}, which has
+been used in text-processing domains to end users get a quick overview of
+information; summarization has also been applied to bug
+reports~\cite{Mani:2012,Rastkar:2010}. Extending this notion to other types of
+artifacts, such as code, requirements, and solution designs, is an open topic
+for research.
+
+Another types of analysis that can improve the search results is detection and
+grouping of duplicates or near-duplicates. By grouping together such artifacts
+and highlighting the variances in seemingly similar artifacts, the system can
+reduce information overload on the user.  Detection of duplicate bug reports has
+been widely researched
+(\eg \cite{wang2008approach,sun2010discriminative}). Developing such analyses
+for other types of artifacts, from a services OKMS perspective, would be useful.
+
+%% \paragraph*{Search Result Organization}
+%% Any search based system would return multiple results. For the user it becomes a
+%% chore in itself to go over each of the search results and identify if it is
+%% relevant or not. Techniques that can help the user easily comprehend the
+%% relevance of the returned results are much needed. Text based search engines
+%% highlight the matching words between query and content of the artifact
+%% returned. However, when the query becomes complex (as above), keyword
+%% highlighting is not of much help. In text processing domain, summarization is
+%% one approach that is used to help end users get a quick idea of what the content
+%% is about. In \cite{Mani:2012,Rastkar:2010} authors present different techniques
+%% to summarize bug reports. Research can help in developing summarization
+%% techniques that work for other SDLC artifact such as code, requirements,
+%% solution design documents and so on. Further, out of the search results returned
+%% many artifacts could be duplicates or near duplicates of each other. In order to
+%% reduce information overload for end user, the OKMS system should be able to
+%% group together duplicates and near duplicates and be able to highlight the
+%% variances in seemingly similar artifacts returned in the search
+%% results. Duplicate bug report
+%% detection \cite{wang2008approach,sun2010discriminative} has been a widely
+%% researched topic. Similarly for each of the artifact of interest from a services
+%% OKMS perspective, a customized duplicate detection approach might be needed.
+
+\paragraph*{Advanced Analytics}
+Most knowledge-management systems today stop at providing search
+capabilities. Given the magnitude of data that can be collected in OKMS, there
+is the opportunity of implementing advanced analytics that go beyond by
+supporting decision making. Consider the scenario of troubleshooting where, to
+resolve a ticket, the user searches through past resolved tickets to find
+similar tickets.  Based on the past tickets and the current context, the user
+has to formulate potential hypotheses about the root cause, decide which
+hypotheses are applicable, and then investigate the solutions. The OKMS would be
+much more useful if it could automatically generate potential hypotheses about
+root causes and solutions for the user to investigate. Such analytics could also
+be developed for other scenarios such as service improvement.
+
+%% \paragraph*{Advanced Analytics}
+%% OKMS today stops at providing search capabilities. Given a user query, the
+%% system returns back matching artifacts but makes no attempt at making any
+%% deductions. Consider the scenario of troubleshooting. A user is searching
+%% through the past resolved ticket repository to see if similar issues were
+%% resolved. There are multiple reasons why the issues could have arisen. Based on
+%% past tickets, the user needs to come up with potential hypothesis of why the
+%% issue could be arising and based on conditions (s)he is seeing in the current
+%% landscape decide what hypothesis is applicable and then pick the appropriate
+%% solution. From such a user's perspective the OKMS system would be more effective
+%% if it were able to auto-generate these potential root causes and solutions
+%% hypothesis. Consider the service improvement use case, the accout team needs
+%% support from OKMS to identify similar projects, then compare the problems seen
+%% in the current project with different kind of issues arising in similar
+%% projects, then judge whether current team is doing better or worse and then
+%% decide to take some action. What kind of capabilities are needed in OKMS system
+%% to be useful in above scenarios is another area for research.
+
+In general, there are two aspects of organization knowledge management:
+codification and personalization~\cite{hansen2000s}. Our discussion of OKMS has
+so far focused on the codification aspect, where knowledge is carefully captured
+and stored in a knowledge base for use by anyone in the company. The
+personalization aspect ties knowledge to specific people; the main purpose of
+knowledge management here is to help the user find and connect with people who
+have the requisite knowledge, not store the knowledge. This strategy is
+especially appropriate in cases where knowledge cannot be easily codified, such
+as the knowledge for handling situations that require complex decision
+making. Expertise browsing, recommendation, and mining have been explored in
+various contexts (\eg \cite{Balog:2006, McDonald:2000, Mockus:2002}). Extending
+these ideas to the context of service delivery, where the OKMS contains data
+from multiple projects in different contexts, is an area where further research
+can help.
+
+%% There are two techniques for organization knowledge management, codification or
+%% personalization \cite{hansen2000s}.  Till now what we have discussed is what is
+%% called codification. Here knowledge is carefully captured and stored in the
+%% database, where it can be accessed and used by anyone in the company. This
+%% strategy allows many people to search for and retrieve knowledge without having
+%% to contact the person who originally developed it. This opens up the possibility
+%% of achieving required scale in knowledge reuse in services
+%% organizations. Another strategy for knowledge management is
+%% personalization. Here knowledge is tied to person who developed is and is shared
+%% mainly through direct person-to-person contacts. The chief purpose of knowledge
+%% management system here is to help people find and connect to other people who
+%% have requisite knowledge, not to store it. This strategy works well when
+%% knowledge cannot be codified especially knowledge required to handle situations
+%% that require complex decision making. Expertise browser \cite{Mockus:2002},
+%% expertise recommender \cite{McDonald:2000} have attempted to identify experts on
+%% various topics within a project. \cite{Balog:2006} has explored expertise mining
+%% and recommendation in predominantly document based OKMS systems. What
+%% information to use to mine expertise when repository contains SDLC data from
+%% multiple projects, how to match your current context and job profile to suggest
+%% people you should have in your network is another scenario where research can
+%% help.
+
+%% \paragraph*{Summary} To summarize, content retrieval in OKMS system provides
+%% open research problems in query generation and use of context to augment
+%% queries, search result summarization, duplicate detection, use of semantic
+%% search to improve search relevance. Further the retrieval capabilities need to
+%% move beyond just search to provide capabilities such as question-answer
+%% generation, cross-account comparison/benchmarking and expertise recommendation.
+

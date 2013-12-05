@@ -4,14 +4,17 @@
 
 Within the increasing demand for software development as a service,
 \textit{software testing as a service} has seen significant growth and adoption
-in its own right, often as a separate service that is independent of development
-activities. In fact, according to a 2006 survey,\footnote{\scriptsize
-  \url{http://www.drdobbs.com/architecture-and-design/cheapers-not-always-better/184415486?requestid=247829}}
-software testing was the second largest outsourced software-engineering activity
-after coding: 81\% of the 200 industrial practitioners, who participated in the
-survey, stated that they outsource software testing. Given this trend, services
-companies now routinely offer services that focus exclusively on testing
-activities.
+in its own right.  Software testing as a service is a multi-billion dollar (annually) 
+market, growing at about 20\% per year. Testing services as an area is a microcosm
+of the entire services landscape.
+
+%In fact, according to a 2006 survey,\footnote{\scriptsize
+%  \url{http://www.drdobbs.com/architecture-and-design/cheapers-not-always-better/184415486?requestid=247829}}
+%software testing was the second largest outsourced software-engineering activity
+%after coding: 81\% of the 200 industrial practitioners, who participated in the
+%survey, stated that they outsource software testing. Given this trend, services
+%companies now routinely offer services that focus exclusively on testing
+%activities, 
 
 %% The engagement modes can vary: staff augmentation, core/flex, managed service
 %% (fixed capacity, outcome based). But perhaps this needs to be mentioned earlier
@@ -28,54 +31,86 @@ activities.
 \end{figure}
 
 The nature of the activities performed in a testing-services engagement can vary
-from client to client; but, typically, the scope of work includes activities,
-such as test planning, test-data creation, test automation, test execution, and
-test maintenance. Figure~\ref{fig:testing-activities} presents an overview of
-the commonly performed activities in the delivery of testing services. A
-delivery engagement might involve any subset of these activities. For example,
-delivery for a client might involve only manual test execution, or the scope of
-work may include test automation and test maintenance as well; in other cases,
-the scope of work may be even broader, encompassing test planning. The nature of
-the test cases can also vary from functional tests to tests that focus on
-validating non-functional system properties, such as performance and security.
+from client to client. The scope of work can include any of test planning, test design,
+test-data creation, test automation, test execution, and test maintenance. 
+Figure~\ref{fig:testing-activities} presents an overview of
+the commonly performed activities in testing services. 
+A particular engagement might involve any subset of these activities; for example,
+tesing for a client could involve only test execution, with the other
+activities done by the client or by other vendors.  
+%% The nature of
+%% the test cases can also vary from functional tests to tests that focus on
+%% validating non-functional system properties, such as performance and security.
 
-The activities shown in Figure~\ref{fig:testing-activities}, of course, pertain
-to testing in general (whether performed in-house or in an outsourced manner),
-but there are factors that can add unique challenges in the setting of testing
-services. For instance, many of these activities can require specific skills in
-testing techniques/tools or coding expertise, which the average testing
-practitioner involved in service delivery may not possess. Second, some of the
-activities may need to be carried out in strict time-bound cycles (governed by
-service-level agreements) and in client-controlled test environments. Finally,
-the myriad of technologies that must be accommodated in the contexts of the IT
-systems of different clients adds another layer of complexity for service
-companies.
+%% The activities shown in Figure~\ref{fig:testing-activities}, of course, pertain
+%% to testing in general (whether performed in-house or in an outsourced manner),
+%% but there are factors that can add unique challenges in the setting of testing
+%% services.  
 
-Thus, in the setting of testing services, with its unique characteristics and
-challenges, manual test creation, execution, and maintenance is still done quite
-often.  The main goal of introducing innovation in this setting is to bring
-automation and rigor to the testing tasks that are performed manually, sometimes
-in an ad-hoc manner, and are prone to human lapses.
+Although software testing appears to be full of opportunities for automated tools,
+for a variety of reasons, testing services remains largely a labor-intensive
+business.  For example, manual testing of GUI-based applications is surprisingly
+common, and testers routinely make up test data without methodical analysis.
 
-The testing research community has seen a long line of research (running into a
-few decades) developing automated techniques for a variety of testing
-problems---such as test-adequacy assessment, test-input generation, regression
-test selection, test augmentation, test prioritization, and test
-minimization---for imperative and object-oriented programs, and applicable to
-different types of systems (\eg component-based systems and web
-applications). For instance, there exists a large body of techniques for
-automated test-input generation (\eg ~\cite{Artzi:2011, Boyapati:2002, cadar08,
-  Clarke:1976, Ferguson:1996, godefroid05, Gross:2012, Harman:2010, king76jul,
-  korel90aug, Pacheco:2007, sen05, thummalapenta:2011, Tillmann:2005,
-  visser04}).  But, many of the techniques are inapplicable, or at least there
-are significant challenges in applying them, in the context of testing
-services. As already mentioned, most enterprise applications include a mix of
-languages and technologies; thus, the automated techniques must deal with this
-complexity. Second, in testing services, the vendor often does not have access
-to the source code of the applications under test; thus, program-analysis-based
-techniques would be inapplicable in these cases. Third, many automated
-techniques---\eg much of the research on test-input generation---focus on unit
-testing, which is not in the scope of work in testing services.
+Here are some of the reasons testing services is labor intensive.  First, the
+automated techniques available today do not necessarily hold up to enterprise
+applications, which include a heterogeneous mix of languages and technologies,
+and for which requirements are written in prose by business analysts.  Second,
+none of the techniques that require source code analysis or inspection are
+typically applicable because the vendor offering testing services is given only
+``black box'' access to the system under test.  Third, deliverables of testing
+activity must be shown rather quickly (because revenues for the vendor are tied
+to deliverables), and a long investment in time and money that is needed in
+deployment of a tool is rarely tolerated either by the vendor or the client.  A
+related reason is that the supply of labor that can deliver testing services has
+hitherto been plentiful and affordable, reducing the economic motivation to
+invest in tools.
+
+The only ``testing'' tools that are routinely used in testing services are test
+management and reporting tools that help keep track of the tests that have been
+run (often manually) and their outcomes.
+
+However, given the growth in testing services, it is inevitable that it needs to move from
+a labor intensive business to an assets and tools-based business.  Therefore, 
+research in this area is about automated tools so that 
+testing can be carried out at lower cost and with consistent quality.  
+Implicit in the abovementioned reasons is that the proposed solutions should be 
+quick to deploy, low cost, and accessible to a large labor pool.
+
+%%For instance, many of these activities can require specific skills in
+%%testing techniques/tools or coding expertise, which the average testing
+%%practitioner involved in service delivery may not possess. Second, some of the
+%%activities may need to be carried out in strict time-bound cycles (governed by
+%%service-level agreements) and in client-controlled test environments. Finally,
+%%the myriad of technologies that must be accommodated in the contexts of the IT
+%%systems of different clients adds another layer of complexity for service
+%%companies.
+
+%%Thus, in the setting of testing services, with its unique characteristics and
+%%challenges, manual test creation, execution, and maintenance is still done quite
+%%often.  The main goal of introducing innovation in this setting is to bring
+%%automation and rigor to the testing tasks that are performed manually, sometimes
+%%in an ad-hoc manner, and are prone to human lapses.
+
+%%The testing research community has seen a long line of research (running into a
+%%few decades) developing automated techniques for a variety of testing
+%%problems---such as test-adequacy assessment, test-input generation, regression
+%%test selection, test augmentation, test prioritization, and test
+%%minimization---for imperative and object-oriented programs, and applicable to
+%%different types of systems (\eg component-based systems and web
+%%applications). For instance, there exists a large body of techniques for
+%%automated test-input generation (\eg ~\cite{Artzi:2011, Boyapati:2002, cadar08,
+%%  Clarke:1976, Ferguson:1996, godefroid05, Gross:2012, Harman:2010, king76jul,
+%%  korel90aug, Pacheco:2007, sen05, thummalapenta:2011, Tillmann:2005,
+%%  visser04}).  But, many of the techniques are inapplicable, or at least there
+%%are significant challenges in applying them, in the context of testing
+%%services. As already mentioned, most enterprise applications include a mix of
+%%languages and technologies; thus, the automated techniques must deal with this
+%%complexity. Second, in testing services, the vendor often does not have access
+%%to the source code of the applications under test; thus, program-analysis-based
+%%techniques would be inapplicable in these cases. Third, many automated
+%%techniques---\eg much of the research on test-input generation---focus on unit
+%%testing, which is not in the scope of work in testing services.
 
 In the rest of this section, we discuss the testing activities shown in
 Figure~\ref{fig:testing-activities}. For each activity, we present a sample of
@@ -95,6 +130,8 @@ evolves into micro planning as the project proceeds---and the test plan needs to
 be continuously refined during the course of a project as more accurate
 information becomes available.
 
+\subsubsection*{Research Topic: ROI on Testing}
+
 Test planning is intended not only to guide all downstream testing activities,
 including test design, test execution, test-data and test-environment
 provisioning, test reporting, etc., it should also answer key business
@@ -103,7 +140,7 @@ questions, such as~\cite{Kagan:NextGenTesting}
 \begin{itemize}
 \denseitems
 
-\item How do we determine the quality of our testing effort?
+%%\item How do we determine the quality of our testing effort?
 
 \item Are we getting our money's worth out of testing?
 
@@ -111,28 +148,37 @@ questions, such as~\cite{Kagan:NextGenTesting}
 
 \item Will an increased testing investment drive further improvement in quality?
 
-\item Our testing budget was cut---what testing should we eliminate what will be
-  its impact on product quality?
+%%\item Our testing budget was cut---what testing should we eliminate what will be
+%%  its impact on product quality?
 
 \end{itemize}
 
-\subsubsection*{Research Area: Accurate Test Prediction}
+It has long been believed that more the testing, less the likelihood of defects
+escaping to the field, and yet there is a point of diminishing return at which
+it is no longer cost effective to invest in testing.  However, this judgment is
+made mostly on intuition.  Little is available to managers by way of
+quantititive techniques to balance the cost and benefit of continued testing.
+Therefore, one of the research problems is to mine historical project data
+across a number of projects to formulate techniques for balancing the cost of
+testing with the return that it provides in terms of risk reduction.  Li and
+Boehm~\cite{Li:2013} have recently presented an approach to prioritize tests
+based on their business value.
 
-One of the challenges in test planning is standardizing and automating it, using
-data intelligence and forecasting. The availability of appropriate data is
-central to accurate forecasting and construction of prediction models (\eg for
-defect prediction). Although in a project, such data may be scarce initially, in
-the context of testing services, the vendor has the opportunity to mine and
-leverage data from hundreds of client projects to build benchmark data that can
-improve the accuracy of even the initial estimates in a project. This is another
-instance of the problem of capturing and leveraging organizational knowledge,
-across multiple client engagements, discussed in Section~\ref{sec:km}. In the
-context of test planning, we see further opportunities for research
-contributions in the types of data to be mined, anonymized, cataloged, linked,
-and organized for use in building accurate prediction models for testing-related
-activities.
+%One of the challenges in test planning is standardizing and automating it, using
+%data intelligence and forecasting. The availability of appropriate data is
+%central to accurate forecasting and construction of prediction models (\eg for
+%defect prediction). Although in a project, such data may be scarce initially, in
+%the context of testing services, the vendor has the opportunity to mine and
+%leverage data from hundreds of client projects to build benchmark data that can
+%improve the accuracy of even the initial estimates in a project. This is another
+%instance of the problem of capturing and leveraging organizational knowledge,
+%across multiple client engagements, discussed in Section~\ref{sec:km}. In the
+%context of test planning, we see further opportunities for research
+%contributions in the types of data to be mined, anonymized, cataloged, linked,
+%and organized for use in building accurate prediction models for testing-related
+%activities.
 
-\subsubsection*{Research Area: Efficient Test Optimization}
+\subsubsection*{Research Topic: Efficient Test Optimization}
 
 In a testing-service engagement, a vendor can inherit existing test cases,
 possibly designed by another vendor, for the applications under test. In fact,
@@ -140,39 +186,61 @@ in large testing-services engagements, the number of such test cases can easily
 run into tens of thousands (sometimes even exceeding a couple of hundred
 thousand).  To make matters worse, often, the test cases are captured in natural
 language, stored in unstructured and varying formats (\eg in plain-text
-documents or spreadsheets), and contain redundancies. Thus, the vendor testing
-teams face the daunting task of taking stock of the available test cases,
-understanding them, and optimizing them.
+documents or spreadsheets), and contain redundancies. 
+%Thus, the vendor testing
+%teams face the daunting task of taking stock of the available test cases,
+%understanding them, and optimizing them.
 
 Tools for extracting relevant information about test cases (\eg test name, test
 steps, test prerequisites, expected outcome) from the diverse formats of
 natural-language descriptions, and tools for clustering test cases (based on the
 natural-language descriptions of tests) would be extremely valuable in assisting
 testers in efficiently getting a good handle on a large corpora of unfamiliar
-test cases. Techniques from natural-language-processing and machine-learning
-communities can be profitably leveraged toward solving these problems.
+test cases. 
+%Techniques from natural-language-processing and machine-learning
+%communities can be profitably leveraged toward solving these problems.
 
-Another task that testers have to perform is optimizing large test suites by
-removing redundant tests while ensuring good test diversity and
-coverage.\footnote{\small Test optimization can also be addressed at the
-  test-execution level, which we discuss in Section~\ref{sec:test-maintenance};
-  in this section, we focus on design-level optimization.} Combinatorial test
-design (CTD)~\cite{Cohen:1996, Cohen:1997, Cohen:2003} is a useful technique for
-performing such optimization that has been rigorously researched. Applying CTD
-in the context of testing services, with the available skill level and the
-effort that goes in creating CTD models for an unfamiliar system---by
-identifying attributes and values (or points of variability), and
-restrictions---can be challenging. Effective tool support for simplifying model
+Because it is generally infeasible to run such a large number of tests in each
+regression cycle, testers must decide which tests to run---and despite the size,
+a test suite may not give a balanced coverage of the application.  Thus,
+techniques are needed to select test scenarios systematically.
+
+One such technique---used extensively at IBM---is combinatorial test design
+(CTD)~\cite{Cohen:1996, Cohen:1997, Cohen:2003}.  With CTD, first an
+application's behavior is modeled in terms of key attributes, and the points of
+variability of each attribute are determined. Then, an algorithm systematically
+generates combinations of attribute-values that should be exercised.  CTD
+manages combinatorial explosion in a principled way, \eg by testing only 
+2-way combinations of attribute-values.  However, the use of CTD requires high
+domain expertise and modeling skill, which is an inhibitor to its broad
+adoption.  Effective tool support for simplifying model
 construction~\cite{Segall:2012a}, iteratively refining
 models~\cite{Segall:2012b}, and debugging models~\cite{Farchi:2013} is an active
 area of research, with scope for more contributions, \eg in supporting model
 maintenance and evolution.
+%%Assuming that accurate CTD models can be created for a client system, a
+Another challenging unsolved problem is how to map the output of CTD 
+%(\ie a $k$-way covering array) 
+to existing test cases. This is a very tedious task, almost completely manually
+performed, for which tool support would be very valuable.
 
-Assuming that accurate CTD models can be created for a client system, a
-challenging unsolved problem is how to map the output of CTD (\ie a $t$-way
-covering array) to the existing test cases. This is a very tedious task, almost
-completely manually performed, for which tool support would be very valuable in
-practice.
+%Another task that testers have to perform is optimizing large test suites by
+%removing redundant tests while ensuring good test diversity and
+%coverage.\footnote{\small Test optimization can also be addressed at the
+%  test-execution level, which we discuss in Section~\ref{sec:test-maintenance};
+%  in this section, we focus on design-level optimization.} Combinatorial test
+%design (CTD)~\cite{Cohen:1996, Cohen:1997, Cohen:2003} is a useful technique for
+%performing such optimization that has been rigorously researched. Applying CTD
+%in the context of testing services, with the available skill level and the
+%effort that goes in creating CTD models for an unfamiliar system---by
+%identifying attributes and values (or points of variability), and
+%restrictions---can be challenging. Effective tool support for simplifying model
+%construction~\cite{Segall:2012a}, iteratively refining
+%models~\cite{Segall:2012b}, and debugging models~\cite{Farchi:2013} is an active
+%area of research, with scope for more contributions, \eg in supporting model
+%maintenance and evolution.
+
+
 
 \subsection{Test Data Generation}
 \label{sec:test-data}
@@ -218,7 +286,7 @@ programming skills or deep tool knowledge?
 %% scripts, but also a recurring cost of maintaining the scripts in response to
 %% application changes and changes in the execution environment.
 
-\subsubsection*{Research Area: Creating Robust Test Scripts}
+\subsubsection*{Research Topic: Creating Robust Test Scripts}
 
 The core problem that needs to be addressed in creating robust test scripts is
 how to locate UI elements in a reliable manner. Moreover, there are different
@@ -255,7 +323,7 @@ differences in visual rendering. %%, say across browsers or application variants
 A third, and less-common, alternative to these approaches is to associate with a
 UI element a label in the vicinity of that element, and refer to the element via
 its associated label. This approach, which is used in the \textsc{ata} tool
-developed at IBM Research~\cite{thummalapenta:2012b, thummalapenta:2012a,
+developed at IBM~\cite{thummalapenta:2012b, thummalapenta:2012a,
   thummalapenta:2013a} and also supported by QTP~\cite{hpqtp}, can overcome the
 limitations of approaches that rely on internal structure or image
 processing. But, the currently available implementations of these approaches
@@ -275,7 +343,7 @@ rigorous empirical studies that evaluate the resiliency of these approaches for
 different types of testing would make valuable research contributions.
 
 \vskip -5pt
-\paragraph*{Test Adaption} The second aspect of script robustness is the
+\paragraph*{Test Portability across Platforms} The second aspect of script robustness is the
 challenge of executing automated test scripts on different platforms, execution
 environments, or application variants.  For example, functional testing of web
 applications needs to be performed on different browsers to detect potential
@@ -297,29 +365,29 @@ notation (\eg \cite{PerfectoScriptOnce}) on one variant can be executed, without
 modification, on another variant.  But, in more complicated cases, the UI layout
 and flow for the same scenario may differ across variants.
 
-Recent work on mobile application testing has focused on recovering state models
-via random and/or directed application crawling, and using the state models to
-generate test cases systematically (\eg \cite{Amalfitano:2011, Amalfitano:2012,
-  Choi:2013, Hu:2011, Joorabchi:2012, Yang:2013}). Symbolic-execution-based
-approaches for test generation are also being investigated~\cite{Anand:2012,
-  Mirzaei:2012}. The problem of automated test adaptation across application
-variants has not yet been investigated but, if suitable techniques are
-developed, they could be useful generally and more so in the context of testing
-services.
+%Recent work on mobile application testing has focused on recovering state models
+%via random and/or directed application crawling, and using the state models to
+%generate test cases systematically (\eg \cite{Amalfitano:2011, Amalfitano:2012,
+%  Choi:2013, Hu:2011, Joorabchi:2012, Yang:2013}). Symbolic-execution-based
+%approaches for test generation are also being investigated~\cite{Anand:2012,
+%  Mirzaei:2012}. The problem of automated test adaptation across application
+%variants has not yet been investigated but, if suitable techniques are
+%developed, they could be useful generally and more so in the context of testing
+%services.
 
-In testing services, the problem of test adaptation also shows up in the context
-of packaged applications, such as SAP. Typically, the implementation of a
-packaged application for a client requires the customization of default data
-definitions, processes, user interfaces, etc. to the client's requirements. Such
-customizations modify the default flows available through the application UI,
-raising the question of whether test scripts can be automatically adapted to
-accommodate the changes.
+%In testing services, the problem of test adaptation also shows up in the context
+%of packaged applications, such as SAP. Typically, the implementation of a
+%packaged application for a client requires the customization of default data
+%definitions, processes, user interfaces, etc. to the client's requirements. Such
+%customizations modify the default flows available through the application UI,
+%raising the question of whether test scripts can be automatically adapted to
+%accommodate the changes.
 
-We believe there is scope for the development of advanced techniques that
-perform such test adaptation, across platforms, variants, and cutomizations,
-while ensuring that the intent of the test cases are preserved.
+%We believe there is scope for the development of advanced techniques that
+%perform such test adaptation, across platforms, variants, and cutomizations,
+%while ensuring that the intent of the test cases are preserved.
 
-\subsubsection*{Research Area: Automated Test-Script Synthesis}
+\subsubsection*{Research Topic: Automated Test-Script Synthesis}
 
 The problem of converting manual test cases to automated test scripts can be
 looked upon as an instance of program synthesis~\cite{Gulwani:2010}.  Program
@@ -364,7 +432,7 @@ to changed requirements or business rules, or it could occur in the form of code
 refactoring. In either case, these pose challenges in keeping a test suite
 up-to-date.
 
-\subsubsection*{Research Area: Identifying Obsolete Tests}
+\subsubsection*{Research Topic: Identifying Obsolete Tests}
 
 When an application is modified to accommodate changed requirements, it can be
 hard to identify which test cases have become obsolete.  In general, a test
@@ -385,7 +453,7 @@ of more powerful techniques that possibly take into account changes in
 specifications and that are more generally applicable (\eg for system-level GUI
 tests) is a challenging but promising research direction.
 
-\subsubsection*{Research Area: Automated Test-Flow Repair}
+\subsubsection*{Research Topic: Automated Test-Flow Repair}
 
 If a failure results from a broken test, the test needs to be repaired.  For
 example, refactoring of the application GUI, such as splitting a web page into
@@ -397,10 +465,10 @@ beyond the capability many of existing GUI test repair
 techniques~\cite{Choudhary:2011, Grechanik:2009, Memon:2008}.
 
 Automated test-repair techniques have also been developed for unit
-tests~\cite{Daniel:2009, Daniel:2010, Mirzaaghaei:2012}, but they are relevant
-in the setting of test services for a couple of reasons pointed out earlier:
-unit testing is typically not in the scope of activities to be performed and
-program-analysis-based techniques are usually inapplicable.
+tests~\cite{Daniel:2009, Daniel:2010, Mirzaaghaei:2012}, but they are not
+relevant in the setting of testing services for a couple of reasons pointed out
+earlier: unit testing is typically not in the scope of activities to be
+performed and program-analysis-based techniques are usually inapplicable.
 
 %% The problem of test-flow repair is similar to the problem of test adaptation
 %% across platforms and application variants, but there are differences that can
@@ -423,23 +491,39 @@ there are opportunities for more research contributions on this topic---\eg
 through further investigation of techniques that combine static program analysis
 and dynamic GUI exploration.
 
-\subsubsection*{Research Area: Reducing Redundancies in Test Scripts}
+\subsubsection*{Research Topic: Reducing Redundancies in Test Scripts}
 
-Over time, as a suite of automated test scripts evolves, subtle redundancies can
-creep into it in the form of similar tests. Similar tests are not redundant by
-any measure; but, they contain many common actions that are executed repeatedly,
-which over a large test suite, can degrade execution time substantially.
-Sometimes, a service provider can inherit such test suites from another vendor,
-that have significant opportunities for optimization of test execution.
+Test scripts are software artifacts, and like other software artifacts, need to
+be refactored occasionally.  Procedural abstraction means identifying common and
+frequently occurring sequences of steps that can be extracted out as a
+subroutine; \eg the steps required to log in into a web site can be extracted
+out into a login subroutine~\cite{Mahmud:2010}.  Opportunities for procedural
+abstraction arise in test scripts, among other reasons, due to rampant
+cut-and-paste practices.  Refactoring makes a test suite easier to understand,
+and easier to maintain going forward.  Somewhat unexpectedly, it can sometimes
+also help reduce the execution time of a test suite---\eg Devaki et
+al.~\cite{Devaki:2013} articulate criteria for merging multiple tests into one
+without loss of coverage.
 
-Recent work on the idea of merging similar tests to improve test execution time,
-while preserving the fault-detection capability of the original test suite, has
-shown promising initial results~\cite{Devaki:2013}. But, such techniques need
-further development and evaluation. For instance, test merging must take into
-account application evolution because changes in the application can invalidate
-some of the merging performed on the old application version. (This problem
-afflicts, in general, all techniques for test-suite reduction.)  Development of
-scalable and efficient techniques for automated test merging, that preserve
-fault-detection capability and are evolution-aware, can be a fruitful research
-direction.
+Further investigation of such techniques for improving test suites, that also
+preserve fault-detection capability and are evolution-aware, can be a fruitful
+research direction.
+
+%Over time, as a suite of automated test scripts evolves, subtle redundancies can
+%creep into it in the form of similar tests. Similar tests are not redundant by
+%any measure; but, they contain many common actions that are executed repeatedly,
+%which over a large test suite, can degrade execution time substantially.
+%Sometimes, a service provider can inherit such test suites from another vendor,
+%that have significant opportunities for optimization of test execution.
+
+%Recent work on the idea of merging similar tests to improve test execution time,
+%while preserving the fault-detection capability of the original test suite, has
+%shown promising initial results~\cite{Devaki:2013}. But, such techniques need
+%further development and evaluation. For instance, test merging must take into
+%account application evolution because changes in the application can invalidate
+%some of the merging performed on the old application version. (This problem
+%afflicts, in general, all techniques for test-suite reduction.)  Development of
+%scalable and efficient techniques for automated test merging, that preserve
+%fault-detection capability and are evolution-aware, can be a fruitful research
+%direction.
 

@@ -33,11 +33,11 @@ these techniques are directed toward attaining simple forms of code coverage,
 such as statement or branch coverage, rather than coverage of complex business
 rules.
 
-Black-box techniques for SQL-aware test database generation
-(\eg \cite{Adir:2011, delaRiva:2010, Khalek:2008}) and similar work done in the
-database community (\eg \cite{Arasu:2011, Binnig:2007b}) may be relevant;
-however, as mentioned before, enterprise applications are implemented with a mix
-of technologies.
+%Black-box techniques for SQL-aware test database generation
+%(\eg \cite{Adir:2011, delaRiva:2010, Khalek:2008}) and similar work done in the
+%database community (\eg \cite{Arasu:2011, Binnig:2007b}) may be relevant;
+%however, as mentioned before, enterprise applications are implemented with a mix
+%of technologies.
 
 Recent work on test generation for web applications targeted specifically toward
 covering business rules~\cite{Thummalapenta:2013} is a step in the direction of
@@ -50,13 +50,13 @@ validation~\cite{Willmor:2006} focuses on augmenting existing tests with check
 conditions, for a given specification of business rules in first-order logic, to
 detect rule violations in a database.
 
-Business rule management systems, \eg ILOG~\cite{ilog} and JBoss
-Drools~\cite{drools}, provide features for specifying, maintaining, executing,
-and monitoring business rules. In these systems, rules are externalized from the
-application and can be evolved separately from the application code.  Although
-such systems support rule execution and monitoring, the onus of developing
-appropriate tests for covering the rules is on the user---these systems can only
-monitor the rules triggered by user-provided tests.
+%Business rule management systems, \eg ILOG~\cite{ilog} and JBoss
+%Drools~\cite{drools}, provide features for specifying, maintaining, executing,
+%and monitoring business rules. In these systems, rules are externalized from the
+%application and can be evolved separately from the application code.  Although
+%such systems support rule execution and monitoring, the onus of developing
+%appropriate tests for covering the rules is on the user---these systems can only
+%monitor the rules triggered by user-provided tests.
 
 We see a big opportunity for research contributions in this subarea. How to take
 a specification of the application as testing criteria, and automatically
