@@ -22,22 +22,21 @@ of the entire services landscape.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth, clip, trim = 22mm 133mm 65mm
+\includegraphics[width=.9\columnwidth, clip, trim = 22mm 133mm 65mm
   17mm]{figs/testing-activities.pdf}
-\vspace*{-15pt}
+\vspace*{-8pt}
 \caption{Typical testing activities performed in delivery of testing services.}
-\vspace*{-10pt}
+\vspace*{-15pt}
 \label{fig:testing-activities}
 \end{figure}
 
 The nature of the activities performed in a testing-services engagement can vary
-from client to client. The scope of work can include any of test planning, test design,
-test-data creation, test automation, test execution, and test maintenance. 
-Figure~\ref{fig:testing-activities} presents an overview of
-the commonly performed activities in testing services. 
-A particular engagement might involve any subset of these activities; for example,
-tesing for a client could involve only test execution, with the other
-activities done by the client or by other vendors.  
+from client to client. The scope of work can include any of test planning, test
+design, test-data creation, test automation, test execution, and test
+maintenance.  Figure~\ref{fig:testing-activities} presents an overview of the
+commonly performed activities.  A particular engagement might involve any subset
+of these activities; for example, tesing for a client could involve only test
+execution, with the other activities done by the client or by other vendors.
 %% The nature of
 %% the test cases can also vary from functional tests to tests that focus on
 %% validating non-functional system properties, such as performance and security.
@@ -137,6 +136,7 @@ including test design, test execution, test-data and test-environment
 provisioning, test reporting, etc., it should also answer key business
 questions, such as~\cite{Kagan:NextGenTesting}
 
+\vspace*{-7pt}
 \begin{itemize}
 \denseitems
 
@@ -152,6 +152,7 @@ questions, such as~\cite{Kagan:NextGenTesting}
 %%  its impact on product quality?
 
 \end{itemize}
+\vspace*{-5pt}
 
 It has long been believed that more the testing, less the likelihood of defects
 escaping to the field, and yet there is a point of diminishing return at which
@@ -241,7 +242,6 @@ performed, for which tool support would be very valuable.
 %maintenance and evolution.
 
 
-
 \subsection{Test Data Generation}
 \label{sec:test-data}
 
@@ -264,11 +264,11 @@ elements is also stored in the test scripts.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth, clip, trim = 21mm 93mm 65mm
+\includegraphics[width=.95\columnwidth, clip, trim = 21mm 93mm 65mm
   18mm]{figs/sample-test-case.pdf}
-\vspace*{-15pt}
-\caption{Sample manual test case and tool-agnostic script representation.}
 \vspace*{-10pt}
+\caption{Sample manual test case and tool-agnostic script representation.}
+\vspace*{-13pt}
 \label{fig:sample-test-case}
 \end{figure}
 
@@ -286,6 +286,7 @@ programming skills or deep tool knowledge?
 %% scripts, but also a recurring cost of maintaining the scripts in response to
 %% application changes and changes in the execution environment.
 
+\vskip -5pt
 \subsubsection*{Research Topic: Creating Robust Test Scripts}
 
 The core problem that needs to be addressed in creating robust test scripts is
@@ -310,15 +311,16 @@ are generated dynamically).
 %% browsers and platforms.
 
 The second category of tools rely on image processing to locate UI elements;
-sample tools in this space include Eggplant~\cite{Eggplant} and
-Sikuli~\cite{Chang:2010, Yeh:2009}. These tools record a test script as a
-sequence of actions performed on images. During automation, the tester grabs a
-portion of the screen around the element of interest, specifies the coordinates
-in the selected region where the action is to be performed, and specifies the
-image-similarity threshold to be to locate the element. By being independent of
-internal structure and attributes, such tools are resilient to changes in the
-internal structure/attributes, but they are fragile in the presence of
-differences in visual rendering. %%, say across browsers or application variants.
+sample tools include Eggplant~\cite{Eggplant} and Sikuli~\cite{Chang:2010,
+  Yeh:2009}. These tools record a test script as a sequence of actions performed
+on images. During automation, the tester grabs a portion of the screen around
+the element of interest, specifies the coordinates in the selected region where
+the action is to be performed, and specifies the image-similarity threshold to
+be to locate the element. By being independent of internal structure and
+attributes, such tools are resilient to changes in internal
+structure/attributes, but they are susceptible to differences in visual
+rendering.
+%%, say across browsers or application variants.
 
 A third, and less-common, alternative to these approaches is to associate with a
 UI element a label in the vicinity of that element, and refer to the element via
@@ -343,11 +345,11 @@ rigorous empirical studies that evaluate the resiliency of these approaches for
 different types of testing would make valuable research contributions.
 
 \vskip -5pt
-\paragraph*{Test Portability across Platforms} The second aspect of script robustness is the
-challenge of executing automated test scripts on different platforms, execution
-environments, or application variants.  For example, functional testing of web
-applications needs to be performed on different browsers to detect potential
-cross-browser incompatibility
+\paragraph*{Test Portability across Platforms} The second aspect of script
+robustness is the challenge of executing test scripts on different platforms,
+execution environments, or application variants.  For example, functional
+testing of web applications needs to be performed on different browsers to
+detect potential cross-browser incompatibility
 defects~\cite{Choudhary2010,Shauvik:2012,Choudhary:2013,Mesbah:2011}. Ideally,
 in such situations, a test script should be agnostic to browser-specific
 differences unless, of course, those differences are symptoms of application
@@ -387,6 +389,7 @@ and flow for the same scenario may differ across variants.
 %perform such test adaptation, across platforms, variants, and cutomizations,
 %while ensuring that the intent of the test cases are preserved.
 
+\vskip -9pt
 \subsubsection*{Research Topic: Automated Test-Script Synthesis}
 
 The problem of converting manual test cases to automated test scripts can be
@@ -394,11 +397,10 @@ looked upon as an instance of program synthesis~\cite{Gulwani:2010}.  Program
 synthesis addresses the problem of discovering a program that realizes a given
 user intent. There are three dimensions of the synthesis problem: the form of
 user intent, the search space of programs, and the search
-technique~\cite{Gulwani:2010}. For instance, the user intent could be stated in
-different forms such as, natural language, input-output examples, logical
-relations between inputs and outputs, and demonstrations. In test automation,
-user intent is specified in the form of manual test steps, and the end goal is
-an automated script that realizes that intent (\eg as shown in
+technique~\cite{Gulwani:2010}. The user intent could be stated in different
+forms such as, input-output examples, logical relations between inputs and
+outputs, and demonstrations. In test automation, user intent is specified as
+manual test steps and the end goal is an automated script (\eg as shown in
 Figure~\ref{fig:sample-test-case}).
 
 Recent work~\cite{thummalapenta:2012a} has attempted to automate the creation of
@@ -407,20 +409,19 @@ with dynamic exploration of multiple flows, via backtracking, to search for the
 correct test script from the space of possible scripts. However, there are
 practical limitations of that technique: dynamic exploration of alternative
 flows via the application UI can encounter problems such as persistent state
-updates during an exploration that may have to be undone or disabled UI elements
-that limit the scope of exploration. Addressing these problems is important for
-effective exploration of the space of possible test scripts.
+updates that may have to be undone, or disabled UI elements that limit the scope
+of exploration. Addressing these problems is important for effective exploration
+of the space of possible test scripts.
 
 Type-based program synthesis~\cite{Perelman:2012} and natural-language
 processing have also been applied for creating automation scripts for
 smartphones from natural-language descriptions of tasks~\cite{Le:2013}. Such
 approaches could also be leveraged for test automation. Creation of test scripts
-can often require the coding of custom functions; for example, a verification
-step in a test might require checking that the values in a drop-down list are
-sorted or that some value exists in a particular cell of a table. Currently,
-such code must be written manually. Automatic synthesis of such code, based on a
-specification of user intent, could go a long way in automating the overall
-creation of test scripts.
+often requires the coding of custom functions; for example, a verification step
+might require checking that the values in a drop-down list are sorted or that
+some value exists in a particular table cell. Currently, such code is written
+manually. Automatic synthesis of such code, based on a specification of user
+intent, could go a long way in automating the overall creation of test scripts.
 
 \subsection{Test Maintenance}
 \label{sec:test-maintenance}
@@ -432,6 +433,7 @@ to changed requirements or business rules, or it could occur in the form of code
 refactoring. In either case, these pose challenges in keeping a test suite
 up-to-date.
 
+\vskip -5pt
 \subsubsection*{Research Topic: Identifying Obsolete Tests}
 
 When an application is modified to accommodate changed requirements, it can be
@@ -453,6 +455,7 @@ of more powerful techniques that possibly take into account changes in
 specifications and that are more generally applicable (\eg for system-level GUI
 tests) is a challenging but promising research direction.
 
+\vskip -5pt
 \subsubsection*{Research Topic: Automated Test-Flow Repair}
 
 If a failure results from a broken test, the test needs to be repaired.  For
@@ -491,6 +494,7 @@ there are opportunities for more research contributions on this topic---\eg
 through further investigation of techniques that combine static program analysis
 and dynamic GUI exploration.
 
+\vskip -5pt
 \subsubsection*{Research Topic: Reducing Redundancies in Test Scripts}
 
 Test scripts are software artifacts, and like other software artifacts, need to
