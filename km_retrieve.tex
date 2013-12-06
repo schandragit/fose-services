@@ -5,6 +5,7 @@ by the OKMS and the effort required from users in determining the usefulness of
 the recommended data. We discuss the following aspects of knowledge retrieval:
 indexing and searching, search result organization, and advanced analytics.
 
+\vskip -5pt
 \paragraph*{Indexing and Searching} The simplest approach for searching
 is \textit{keyword-based search}, in which users specify the words they are
 looking for and the system returns all artifacts that contain the specified
@@ -94,6 +95,7 @@ clauses would be interesting.
 %% context, how to use this context to create the query and how to weigh different
 %% clauses in the query.
 
+\vskip -5pt
 \paragraph*{Search Result Organization}
 Although more powerful querying capabilities can help improve the accuracy of
 search results, a search-based system would in general return multiple
@@ -108,7 +110,7 @@ reports~\cite{Mani:2012,Rastkar:2010}. Extending this notion to other types of
 artifacts, such as code, requirements, and solution designs, is an open topic
 for research.
 
-Another types of analysis that can improve the search results is detection and
+Another type of analysis that can improve the search results is detection and
 grouping of duplicates or near-duplicates. By grouping together such artifacts
 and highlighting the variances in seemingly similar artifacts, the system can
 reduce information overload on the user.  Detection of duplicate bug reports has
@@ -116,7 +118,17 @@ been widely researched
 (\eg \cite{wang2008approach,sun2010discriminative}). Developing such analyses
 for other types of artifacts, from a services OKMS perspective, would be useful.
 
-Typically, a OKMS system would display the search results as a ranked textual list, with 10-20 items per page. The ranking is done based on relevant of result artifact to user query, quality of artifact, past user ratings given to artifact and so on. Prior works have explored other novel ways to visualize search results ~\cite{Nowell:1996,Shneiderman:2000}. What kinds of non-list visualization would be effective in organization knowledge management system that are predominantly composed of SDLC artifacts is another direction for research. 
+Typically, an OKMS would display the search results as a ranked list, with
+10--20 items per page. The ranking can be based on relevance of artifacts,
+quality of artifacts, past user ratings given to artifacts, etc. Prior research
+have explored other novel ways to visualize search results
+(\eg \cite{Nowell:1996,Shneiderman:2000}).  Another potential direction for
+research is the investigation of effective non-list visualizations of OKMS
+artifacts.
+
+%% What kinds of non-list visualization
+%% would be effective in organization knowledge management system that are
+%% predominantly composed of SDLC artifacts is another direction for research.
 
 %% \paragraph*{Search Result Organization}
 %% Any search based system would return multiple results. For the user it becomes a
@@ -140,6 +152,7 @@ Typically, a OKMS system would display the search results as a ranked textual li
 %% researched topic. Similarly for each of the artifact of interest from a services
 %% OKMS perspective, a customized duplicate detection approach might be needed.
 
+\vskip -5pt
 \paragraph*{Advanced Analytics}
 Most knowledge-management systems today stop at providing search
 capabilities. Given the magnitude of data that can be collected in OKMS, there
@@ -153,7 +166,12 @@ much more useful if it could automatically generate potential hypotheses about
 root causes and solutions for the user to investigate. Such analytics could also
 be developed for other scenarios such as service improvement.
 
-Much of the knowledge retrieval first requires that user is able to identify similar projects in the organization and then dig deeper into them for learning or comparison with situation at hand. What makes two projects similar? Is it technologies being used or project size or similarity in applications or a combination? Hence, analysis to identify similar projects, compare a project against multiple other projects and auto-summarize similarities and differences is needed. 
+The effectiveness of knowledge retrieval in the context of service delivery
+depends to a large extent on the user's ability to identify projects similar to
+the project under consideration. What makes two projects similar? Is it the
+technologies being used, the project size, similarity of applications, or a
+combination of these and other factors? Investigation of this question and
+development of automated techniques for identifying similar projects is needed.
 
 %% \paragraph*{Advanced Analytics}
 %% OKMS today stops at providing search capabilities. Given a user query, the
@@ -172,6 +190,14 @@ Much of the knowledge retrieval first requires that user is able to identify sim
 %% projects, then judge whether current team is doing better or worse and then
 %% decide to take some action. What kind of capabilities are needed in OKMS system
 %% to be useful in above scenarios is another area for research.
+
+%% Much of the knowledge retrieval first requires that user is able to identify
+%% similar projects in the organization and then dig deeper into them for learning
+%% or comparison with situation at hand. What makes two projects similar? Is it
+%% technologies being used or project size or similarity in applications or a
+%% combination? Hence, analysis to identify similar projects, compare a project
+%% against multiple other projects and auto-summarize similarities and differences
+%% is needed.
 
 In general, there are two aspects of organization knowledge management:
 codification and personalization~\cite{hansen2000s}. Our discussion of OKMS has
@@ -217,100 +243,4 @@ can help.
 %% move beyond just search to provide capabilities such as question-answer
 %% generation, cross-account comparison/benchmarking and expertise recommendation.
 
-%% \paragraph*{Search Result Organization}
-%% Any search based system would return multiple results. For the user it becomes a
-%% chore in itself to go over each of the search results and identify if it is
-%% relevant or not. Techniques that can help the user easily comprehend the
-%% relevance of the returned results are much needed. Text based search engines
-%% highlight the matching words between query and content of the artifact
-%% returned. However, when the query becomes complex (as above), keyword
-%% highlighting is not of much help. In text processing domain, summarization is
-%% one approach that is used to help end users get a quick idea of what the content
-%% is about. In \cite{Mani:2012,Rastkar:2010} authors present different techniques
-%% to summarize bug reports. Research can help in developing summarization
-%% techniques that work for other SDLC artifact such as code, requirements,
-%% solution design documents and so on. Further, out of the search results returned
-%% many artifacts could be duplicates or near duplicates of each other. In order to
-%% reduce information overload for end user, the OKMS system should be able to
-%% group together duplicates and near duplicates and be able to highlight the
-%% variances in seemingly similar artifacts returned in the search
-%% results. Duplicate bug report
-%% detection \cite{wang2008approach,sun2010discriminative} has been a widely
-%% researched topic. Similarly for each of the artifact of interest from a services
-%% OKMS perspective, a customized duplicate detection approach might be needed.
-
-\paragraph*{Advanced Analytics}
-Most knowledge-management systems today stop at providing search
-capabilities. Given the magnitude of data that can be collected in OKMS, there
-is the opportunity of implementing advanced analytics that go beyond by
-supporting decision making. Consider the scenario of troubleshooting where, to
-resolve a ticket, the user searches through past resolved tickets to find
-similar tickets.  Based on the past tickets and the current context, the user
-has to formulate potential hypotheses about the root cause, decide which
-hypotheses are applicable, and then investigate the solutions. The OKMS would be
-much more useful if it could automatically generate potential hypotheses about
-root causes and solutions for the user to investigate. Such analytics could also
-be developed for other scenarios such as service improvement.
-
-%% \paragraph*{Advanced Analytics}
-%% OKMS today stops at providing search capabilities. Given a user query, the
-%% system returns back matching artifacts but makes no attempt at making any
-%% deductions. Consider the scenario of troubleshooting. A user is searching
-%% through the past resolved ticket repository to see if similar issues were
-%% resolved. There are multiple reasons why the issues could have arisen. Based on
-%% past tickets, the user needs to come up with potential hypothesis of why the
-%% issue could be arising and based on conditions (s)he is seeing in the current
-%% landscape decide what hypothesis is applicable and then pick the appropriate
-%% solution. From such a user's perspective the OKMS system would be more effective
-%% if it were able to auto-generate these potential root causes and solutions
-%% hypothesis. Consider the service improvement use case, the accout team needs
-%% support from OKMS to identify similar projects, then compare the problems seen
-%% in the current project with different kind of issues arising in similar
-%% projects, then judge whether current team is doing better or worse and then
-%% decide to take some action. What kind of capabilities are needed in OKMS system
-%% to be useful in above scenarios is another area for research.
-
-In general, there are two aspects of organization knowledge management:
-codification and personalization~\cite{hansen2000s}. Our discussion of OKMS has
-so far focused on the codification aspect, where knowledge is carefully captured
-and stored in a knowledge base for use by anyone in the company. The
-personalization aspect ties knowledge to specific people; the main purpose of
-knowledge management here is to help the user find and connect with people who
-have the requisite knowledge, not store the knowledge. This strategy is
-especially appropriate in cases where knowledge cannot be easily codified, such
-as the knowledge for handling situations that require complex decision
-making. Expertise browsing, recommendation, and mining have been explored in
-various contexts (\eg \cite{Balog:2006, McDonald:2000, Mockus:2002}). Extending
-these ideas to the context of service delivery, where the OKMS contains data
-from multiple projects in different contexts, is an area where further research
-can help.
-
-%% There are two techniques for organization knowledge management, codification or
-%% personalization \cite{hansen2000s}.  Till now what we have discussed is what is
-%% called codification. Here knowledge is carefully captured and stored in the
-%% database, where it can be accessed and used by anyone in the company. This
-%% strategy allows many people to search for and retrieve knowledge without having
-%% to contact the person who originally developed it. This opens up the possibility
-%% of achieving required scale in knowledge reuse in services
-%% organizations. Another strategy for knowledge management is
-%% personalization. Here knowledge is tied to person who developed is and is shared
-%% mainly through direct person-to-person contacts. The chief purpose of knowledge
-%% management system here is to help people find and connect to other people who
-%% have requisite knowledge, not to store it. This strategy works well when
-%% knowledge cannot be codified especially knowledge required to handle situations
-%% that require complex decision making. Expertise browser \cite{Mockus:2002},
-%% expertise recommender \cite{McDonald:2000} have attempted to identify experts on
-%% various topics within a project. \cite{Balog:2006} has explored expertise mining
-%% and recommendation in predominantly document based OKMS systems. What
-%% information to use to mine expertise when repository contains SDLC data from
-%% multiple projects, how to match your current context and job profile to suggest
-%% people you should have in your network is another scenario where research can
-%% help.
-
-%% \paragraph*{Summary} To summarize, content retrieval in OKMS system provides
-%% open research problems in query generation and use of context to augment
-%% queries, search result summarization, duplicate detection, use of semantic
-%% search to improve search relevance. Further the retrieval capabilities need to
-%% move beyond just search to provide capabilities such as question-answer
-%% generation, cross-account comparison/benchmarking and expertise recommendation.
 
