@@ -1,7 +1,7 @@
 
 \subsubsection{Knowledge Creation}
 
-What constitutes useful knowledge in a service company? How can such knowledge
+What constitutes useful knowledge in a services company? How can such knowledge
 be collected and organized? These are some of the questions that need to be
 addressed in knowledge creation. Specifically, we discuss three aspects of
 knowledge creation: \textit{crawling}, to collect content from diverse
@@ -66,8 +66,8 @@ resolutions can be extracted from ticket-management systems.  Account teams
 periodically report important metrics, such as ticket volumes, code changes, and
 service-improvement actions taken, on the client applications being maintained;
 these reports could be automatically pushed into the OKMS. The main challenge
-here is extraction of this data from the diversity of tools and technologies used to create software
-artifacts and related information across projects.
+here is extraction of data from the diverse tools and technologies used to
+create software artifacts and related information across projects.
 
 %% Another approach for content creation is to auto-harvest artifacts produced in
 %% the SDLC lifecycle and put these in the knowledge management system. Complete
@@ -93,7 +93,10 @@ model-to-model transforms~\cite{debdoot:2010:scc}.
 
 Another issue is that the traceability information necessary for understanding
 the context of how and why an artifact was produced might be missing---for
-instance, traceability between code commits and bug reports is necessary to support knowledge reuse for troubleshooting. Similarly, traceability between requirements and application code is desired to enable reuse of business process software implementations across projects. The gaps in traceability  occur
+instance, traceability between code commits and bug reports is necessary to
+support knowledge reuse for troubleshooting. Similarly, traceability between
+requirements and application code is required to enable reuse of business
+process software implementations across projects. The gaps in traceability occur
 primarily due to lack of integration between the tools used to create the
 artifacts. In such cases, automated analyses must be developed for inferring the
 traceability; this is an active area of research~\cite{spanoudakis2005software},
@@ -122,11 +125,11 @@ developed.
 %% information retrieval (IR) techniques, others use traceability rules, special
 %% integrators, and inference axioms.
 
-In service delivery, the OKMS is populated with data collected at client
+In service delivery, the OKMS is populated with data collected in client
 engagements and can include client-confidential and sensitive information (\eg a
 problem ticket might contain the contact information of the user). Thus, a
 critical requirement for the OKMS, which would benefit from automation, is
-cleansing or anonymization of all sensitive and client-confidential information.
+cleansing or anonymization of sensitive and client-confidential information.
 
 %% The content in a OKMS database comes from various clients:. There are strict
 %% privacy constraints around what data is client confidential and hence cannot be
@@ -150,17 +153,16 @@ instance, clustering~\cite{Berkhin06} and topic-modeling
 techniques~\cite{Blei:2012} could be leveraged to group similar content and
 infer topics from them.
 
-Manual classification of data can be tedious and prone to human errors. To
-reduce this effort, automation via pattern matching and machine-learning-based
-classification approaches~\cite{bishop2006pattern} could be used.  The
-effectiveness of these techniques depends on the availability of positive and
-negative samples to train a learning model. Often, due to unavailability of
-training data and/or lack of differentiating features, usual learning techniques
-such as na\"{\i}ve bayes, support vector machines, and decision
-trees, do not attain sufficient precision and recall. Thus, there is a
-need to customize more advanced learning approaches (\eg
-ensemble techniques~\cite{Dietterich:2000}) or develop new techniques that are more effective
-on the typical data available in service delivery.
+Manual data classification can be tedious and prone to human errors. To address
+this, automation via pattern matching and machine-learning-based
+classification~\cite{bishop2006pattern} could be used.  The effectiveness of
+these techniques depends on the availability of positive and negative samples to
+train a model. Often, due to unavailability of training data and/or lack of
+differentiating features, usual learning techniques such as na\"{\i}ve bayes,
+support vector machines, and decision trees, do not attain sufficient precision
+and recall. Thus, there is a need to customize more advanced learning approaches
+(\eg ensemble techniques~\cite{Dietterich:2000}) or develop new techniques that
+are more effective on the typical data available in service delivery.
 
 %% One taxonomy is obviously the object type i.e. requirement, code,
 %% problem ticket (further segmented into problem description, resolution). Another
@@ -185,17 +187,16 @@ on the typical data available in service delivery.
 
 
 The data in an OKMS can quickly grow very large. For example, in just a year, a
-problem ticket repository we setup in IBM grew to contain 750,000 tickets;
+problem ticket repository that we set up in IBM grew to contain 750,000 tickets;
 similarly, our business process solution repository~\cite{Goodwin:2012b}
 contains approximately 16,000 solutions. Given this scale, ensuring high quality
 of the data (\eg filtering out non-reusable content) is challenging but
 essential. Different approaches could be followed for ensuring data quality,
-such as human vetting of incoming OKMS content or based on human feedback on
-usefulness of retrieved content. An interesting research direction would be to
-explore automatic quality scoring of artifacts, taking into consideration
-technical and non-technical artifact content, reputation of artifact authors,
-etc. For example, such approaches have been investigated
-in~\cite{Majumdar:2011}.
+such as human vetting of incoming OKMS content or manual feedback on usefulness
+of retrieved content. An interesting research direction would be to explore
+automatic quality scoring of artifacts, taking into consideration technical and
+non-technical artifact content, reputation of artifact authors, etc. For
+example, such approaches have been investigated in~\cite{Majumdar:2011}.
 
 %% Once an OKMS system is implemented in an organization, irrespective of the
 %% approach to collect content i.e. manual, automated harvesting or hybrid, the

@@ -33,16 +33,15 @@ Hipikat~\cite{Murphy:2005} and Codebook~\cite{Begel:2010}.
 A service company has a large, geographically distributed employee base, with
 frequent employee churn at project and organization levels. To maintain
 consistent delivery quality, it is essential to manage knowledge at the project
-level. Moreover, because services is a price-sensitive business, there is also
-the need to be cheaper and better, by doing more with fewer or less-skilled
+level. Moreover, because services is a highly price-sensitive business, there is
+also the need to be cheaper and better, by doing more with fewer or less-skilled
 resources. Driven by this need to gain competitive advantage in increasingly
-competitive markets, it becomes essential for companies to build
-\textit{organization memories} that store the collective knowledge of past
-engagements, processes, and people to increase productivity and reduce
-activities that ``reinvent the wheel.'' Such a system can enable the
-organization to leverage learnings and solutions from past services engagements in
-the context of a new similar engagement, even when members from the past
-projects are not around.
+competitive markets, it is essential for companies to build \textit{organization
+  memories} that store the collective knowledge of past engagements, processes,
+and people to increase productivity and reduce activities that ``reinvent the
+wheel.'' Such a system can enable the organization to leverage learnings and
+solutions from past services engagements in the context of a new similar
+engagement, even when members from the past projects are not around.
 
 The need for organization-level knowledge bases is well established in the
 management literature~\cite{davenport2000working,bollinger2001managing}. Equally
@@ -54,10 +53,10 @@ tacit knowledge and motivate individuals to contribute; (2) \textit{knowledge
   governance}---legitimacy, relevance, and quality of contributed
 knowledge. Alavi and Leidner~\cite{Alavi:2001} present a good overview of
 research issues in organization knowledge management. Prior research suggests
-that IT is incapable of capturing organizational knowledge
-\cite{malhotra2004knowledge,mcdermott2000information}, but also postulates that
-IT is the strongest enabler for organization knowledge management systems
-(OKMS).
+that IT is incapable of capturing organizational
+knowledge~\cite{malhotra2004knowledge,mcdermott2000information}, but also
+postulates that IT is the strongest enabler for organization knowledge
+management systems (OKMS).
 
 Next, we present three scenarios illustrating the need for OKMS in service
 companies. Then, we discuss promising research directions based on our
@@ -67,13 +66,13 @@ scenarios.
 \subsection{Scenarios for OKMS}
 
 In this section, we present three typical scenarios in service delivery that can
-benefit from an organization knowledge management system.
+benefit from an OKMS.
 
 \subsubsection{Troubleshooting}
 
 One of the common forms of service engagements is application maintenance, where
-the expectation from the service provider is to take over a client's custom
-application and handle service requests for it.  Service requests come in the
+the expectation from the service provider is to take over a client's
+applications and handle service requests for them.  Service requests come in the
 form of trouble ``tickets'': users of the applications can raise a ticket,
 logging a problem they have experienced. This is similar to defect logging in
 bug repositories, such as Bugzilla, where users of an open-source software can
@@ -81,26 +80,23 @@ enter the details of a problem that they encountered.  The main difference is
 that, in typical software development in open-source communities, there is no
 obligation on the development team to address the defects in a timely
 fashion. Likewise, even in a product setting, the development team can
-prioritize which defects they are going to address first.  In service context,
-the service provider is supposed to resolve the ticket in a timely manner, often
-under a service-level agreement. For example, a critical bug must be resolved
-within 6~hours, at risk of financial consequences for the provider.
+prioritize the order in which they address defects.  In services context, the
+service provider must resolve the ticket in a timely manner, often under a
+service-level agreement. For example, a critical bug must be resolved within
+6~hours, failing which there could be financial consequences for the provider.
 
 Software development in service organizations is not pure custom
-implementations---often, packaged applications, such as SAP, Oracle, and COTS
+implementation---often, packaged applications, such as SAP, Oracle, and COTS
 products, with client-specific customizations and external libraries are
 used. The cause of a problem ticket could be in the customization done for the
 client, in the way external code is used, or even a bug in the external code. If
 the issue is with the configuration or the external code, it is likely that the
-same (or a similar) issue has been resolved previously for another client, and
-access to that information would make the people resolving the current ticket
-more efficient and effective at their task.  Therefore, a knowledge base that
-stores past resolved tickets across clients would be a useful organization-wide
-resource.
-
-In a way, such a knowledge base would be similar to public question-and-answer
-forums we see on various software languages, tools, and open-source projects on
-the web.
+same (or a similar) issue has been resolved previously for another client;
+access to that information would make the resolution of the current ticket more
+efficient and effective.  Therefore, a knowledge base that stores past resolved
+tickets across clients would be a useful organization-wide resource.  In a way,
+such a knowledge base would be similar to public question-and-answer forums on
+various software languages, tools, and open-source projects on the web.
 
 \subsubsection{Software Development Projects}
 
@@ -112,7 +108,7 @@ all clients, whereas other processes would be common within a domain only (\eg
 claim-management process in the insurance domain).  The client expectation is
 that the service provider possesses adequate knowledge of the generic version of
 a particular process, creates client-specific variations, and implements the
-system. Typically, this requires significant domain experience.
+system. Typically, this requires significant domain expertise.
 
 A knowledge-management system that stores past business process implementations
 can help in this scenario. The past solutions need to be organized by domain for
@@ -121,13 +117,22 @@ the standard and customized portions of past solutions needs to be available,
 along with the solution code. While designing a new business-process solution,
 the team can search the repository to learn about variations of the process to
 be implemented and, if the client requirements are similar to a past solution,
-even reuse the solution in totality or parts. This can reduce the cost and
-let the service provider staff the team with people with less domain experience.
+even reuse the solution in totality or parts. This can reduce the cost and let
+the service provider staff the team with people with less domain knowledge.
 
-Code reuse, at different levels of granularity---lines-of-code level, API level,
+Code reuse at different levels of granularity---lines-of-code level, API level,
 and even complete solutions---has been an area of interest in the
-software-engineering community~\cite{Reiss:2009,Holmes:2013}. Much of this work
-could be applied in the setting of a service company too. In services engagements, because the code is being developed for a particular client, who owns the code IP might become an issue. If the code ownership is solely held by the client, making the solution code available as part of a shared repository would not be possible. Services organizations often face this challenge of convincing the clients of sharing artifacts created as part of these individual engagements into cross-account repositories maintained by the service providers. Experience reports, user studies that report on effort reduction and/or quality improvement from code reuse can enable service organizations to quantitatively convince the clients of benefit they are likely to receive because of actual software artifact sharing and reuse.  
+software-engineering community~\cite{Holmes:2013,Reiss:2009}. Much of this work
+could be applied in the setting of software services too. However, in the
+services context, because code is developed for a particular client, the
+intellectual property ownership of the code could become an issue. If the code
+is solely owned by the client, making it available in a shared repository would
+not be possible. Services organizations often face the challenge of convincing
+clients of the benefits of sharing artifacts created as part of a service
+engagement into cross-account repositories maintained by the service
+providers. Experience reports and user studies that quantify effort reduction
+and/or quality improvement from code reuse can help service organizations
+convince the clients of the potential benefits of artifact sharing and reuse.
 
 \subsubsection{Service Improvement}
 
@@ -141,10 +146,10 @@ company maintains the payroll applications for 10~clients. For nine of the
 clients, the monthly ticket volumes range between 5 and 10 tickets, whereas, for
 the remaining client (say client~A), the ticket volume ranges from 20 to
 50. This indicates that, for client~A, it may be worthwhile to investigate
-reasons for high ticket volumes and determine whether preventive actions can be
-taken. Moreover, if a similar problem was seen in the past in another client's
-payroll system, information about the actions taken for that client could help
-the team resolve the problem for client~A.
+reasons for high ticket volumes and determine whether preventive actions could
+be taken. Moreover, if a similar problem was seen in the past in another
+client's payroll system, information about the actions taken for that client
+could help the team resolve the problem for client~A.
 
 Many organizations (\eg CAST, Software Engineering Institute) collect
 quantitative and qualitative benchmark information for software projects and
@@ -169,8 +174,7 @@ more useful.
 %% available and be more useful.
 
 \begin{figure}[t]
-	\center
-	\includegraphics[width=\columnwidth]{figs/km.png}
+	\center \includegraphics[width=\columnwidth]{figs/km.png}
         \vspace*{-18pt}
 	\caption{Activities involved and tasks performed in building and using
           an OKMS system for a service company.}
@@ -187,16 +191,16 @@ business-process transformation~\cite{Goodwin:2012b}, and a system for sharing
 information about problem tickets across client
 engagements~\cite{Majumdar:2011}.
 
-We next discuss some core problems that need to be addressed in creating an OKMS
-in service organizations. At the simplest level, an OKMS is a database where
-content can be stored and retrieved from. However, what content should be
-stored, how easily can the requisite content be collected, and the ease with which relevant
-content can be retrieved determines the usefulness of an OKMS.
-Figure~\ref{fig-km} presents several activities (shown as block arrows) that
-need to be performed in creating and using an OKMS; for each activity, the
-figure displays relevant topics (shown in the boxes) that would benefit from
-further research. The activities are broadly classified into two categories:
-knowledge creation and knowledge retrieval.
+Next, we discuss some core research problems that need to be addressed in
+creating effective knowledge-management systems in service organizations. At the
+simplest level, an OKMS is a database where content can be stored and retrieved
+from. However, what content should be stored, how easily can the content be
+collected, and the ease with which relevant content can be retrieved determines
+the usefulness of an OKMS.  Figure~\ref{fig-km} presents several activities
+(shown as block arrows) that need to be performed in creating and using an OKMS;
+for each activity, the figure displays relevant topics (shown in the boxes) that
+would benefit from further research. The activities are broadly classified into
+two categories: knowledge creation and knowledge retrieval.
 
 \input{km_create}
 

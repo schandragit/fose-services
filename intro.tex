@@ -1,29 +1,100 @@
 \section{Introduction}
-% test change
-% another test change
+\label{sec:intro}
 
-Software development is most visibly associated with companies that manufacture software products.  Corporate names such as Microsoft, Google, IBM, SAP, Oracle, and so on are well-known software companies.  These companies offer several software  products to individual consumers and businesses.
+Software development is most visibly associated with companies that manufacture
+software products.  Corporate names such as Microsoft, Google, IBM, SAP, Oracle,
+and so on are well-known software companies.  These companies offer several
+software products to individual consumers and businesses.
 
-In the broader information technology ecosystem, software development is also associated with ``services companies''.  Instead of offering software products, these companies develop, test and maintain software for other businesses, i.e. they offer software engineering as a service.\footnote{Note to be confused with software-as-a-service, which is a way to deliver software products.} Examples of service companies include Accenture, Cap Gemini, Infosys, Atos, and so on; in addition, companies such as IBM and HP have a large services business in addition to their software and hardware businesses.
+In the broader information technology ecosystem, software development is also
+associated with ``services companies.''  Instead of offering software products,
+these companies develop, test, and maintain software for other businesses, \ie
+they offer software engineering as a service.\footnote{\small Not to be confused
+  with software-as-a-service, which is a way to deliver software products.}
+Examples of service companies include Accenture, Cap Gemini, Infosys, Atos, and
+so on; in addition, companies such as IBM and HP have a large services business
+in addition to their software and hardware businesses.
 
-There are two main drivers for demand for software services.  First, most businesses prefer to focus on their core competence, rather than develop and foster in house competence for software development.  For example, every company in the financial sector relies heavily on information technology, but information technology is not the basis on which they differentiate themselves in that sector. They prefer not to run large in-house teams that have expertise in ever growing set of software technologies, when they can easily procure IT services on demand from service companies. Obviously, some number of in-house staff is always needed, but the bulk of work can be outsourced to service companies.
+There are two main drivers for demand for software services.  First, most
+businesses prefer to focus on their core competence, rather than develop and
+foster in house competence for software development.  For example, every company
+in the financial sector relies heavily on information technology, but
+information technology is not the basis on which they differentiate themselves
+in that sector. They prefer not to run large in-house teams that have expertise
+in ever growing set of software technologies, when they can easily procure IT
+services on demand from service companies. Obviously, some number of in-house
+staff is always needed, but the bulk of work can be outsourced to service
+companies.
 
-Second, although a lot of business software functionality is now available in pre-packaged applications, it is not realistic to run an enterprise entirely with off-the-shelf software. Significant customization and systems integration is required to run any large enterprise, even if substantial building blocks are available off the shelf. Moreover, custom software must be maintained to incorporate new business needs or to accommodate legislative compliance, and continually upgraded to newer technologies such as cloud. Service companies have deep industry as well as technology expertise to cater to these needs. The fact that services companies can also deliver services cost effectively using a large pool of global resources is an added benefit. 
+Second, although a lot of business software functionality is now available in
+pre-packaged applications, it is not realistic to run an enterprise entirely
+with off-the-shelf software. Significant custom\-ization and systems integration
+is required to run any large enterprise, even if substantial building blocks are
+available off the shelf. Moreover, custom software must be maintained to
+incorporate new business needs or to accommodate legislative compliance, and
+continually upgraded to newer technologies such as cloud. Service companies have
+deep industry as well as technology expertise to cater to these needs. The fact
+that services companies can also deliver services cost effectively using a large
+pool of global resources is an added benefit.
 
-Like software product companies, services companies employ software engineers in large numbers, and take on long running software projects. Given the scale of operations, many of the usual challenges in software engineering that are well known from product development context also apply in the context of services.  However, the two kinds of businesses have some differences, due to which certain challenges become more pronounced for services companies. 
+Like software product companies, services companies employ software engineers in
+large numbers, and take on long-running software projects. Given the scale of
+operations, many of the usual challenges in software engineering that are well
+known in product development also apply in the context of services.  However,
+the two kinds of businesses have some differences, due to which certain
+challenges become more pronounced for services companies.
 
-The most salient of differences is this: product companies compete in the market they serve on the basis of the features offered in their product and how well it anticipate their customers' needs. Thus, their main focus is on innovation in identifying features that their customers would be willing to pay for, and bringing out a product that offer those features before their competition does. By contrast, services companies do not compete on the basis of the features of any product; rather they compete in terms of the ``quality of service'' that they offer to the business that purchase their services. Here, quality of service informally means several things that one may associate with any kind of services business, even outside of information technology: can the service provider deliver on their contract on time, with acceptable work quality, and at a competitive price.  Therefore, the innovation in service companies has to do with techniques to carry out projects reliably, on time, with acceptable quality, and manage the cost.
+The most salient of differences is this: product companies compete in the market
+they serve on the basis of the features offered in their product and how well it
+anticipate their customers' needs. Thus, their main focus is on innovation in
+identifying features that their customers would be willing to pay for, and
+bringing out a product that offer those features before their competition
+does. By contrast, services companies do not compete on the basis of the
+features of any product; rather they compete in terms of the ``quality of
+service'' that they offer to the business that purchase their services. Here,
+quality of service informally means several things that one may associate with
+any kind of services business, even outside of information technology: can the
+service provider deliver on their contract on time, with acceptable work
+quality, and at a competitive price.  Therefore, the innovation in service
+companies pertains to techniques for carrying out projects reliably, on time,
+with acceptable quality, and managing the cost.
 
-Another important difference is that in product companies, copies of the same product is sold to a large number of customers, and typically the transaction is one time payment of license fee.  A services company provides services to a much smaller number of clients, and the transaction is an ongoing relationship rather than a one-time payment of license fee. This has an important bearing in deployment of innovation.  A product company must be extremely careful in choosing what innovations to productize, because they cannot afford to get it wrong; however, if successfully shipped, the innovation automatically makes its way to a large number of users.  In a services company, the innovation is somewhat less risky, but it does not scale automatically: it might take just as much work in rolling out an innovation to the next client as it did for the first client.
+Another important difference is that in product companies, copies of the same
+product are sold to a large number of customers and, typically, the transaction
+is one-time payment of license fee.  A services company provides services to a
+much smaller number of clients, and the transaction is an ongoing relationship
+rather than a one-time payment of license fee. This has an important bearing on
+deployment of innovation.  A product company must be extremely careful in
+choosing what innovations to productize because they cannot afford to get it
+wrong; however, if successfully shipped, the innovation automatically makes its
+way to a large number of users.  In a services company, deploying innovation is
+somewhat less risky, but it does not scale automatically: it can take just as
+much work in rolling out an innovation to the next client as it did for the
+first client.
 
 %% A third difference is in the timeline of engagement with the customer.
 
 %% The global market for software services is almost the same size as the market for software products in terms of revenues.
 
-In this paper, we consider selected directions for research in software engineering that would impact how software services are delivered.  The list of topics we have chosen is influenced by our work during the past few years at IBM; there are numerous other topics that are fruitful areas of research.  Some topics of current prominence that are not considered in this paper include legacy transformation, service-oriented architectures, and migration of applications to cloud.
+In this paper, we consider selected directions for research in software
+engineering that would impact how software services are delivered.  The topics
+we have chosen are influenced by our work during the past few years at IBM;
+there are numerous other topics that would be fruitful areas of research.  Some
+topics of current prominence that are not considered in this paper include
+legacy transformation, API identification and extraction, and migration of
+applications to cloud.
 
 %% There are numerous other topics, e.g. legacy transformation and cloud migration that are very promising areas of research.
 
-The rest of the paper is as organized as follows. In the next section, we take a closer look at a sample software services engagement.  Section~\ref{sec:global} describes the research challenges in how people and work are organized in a large services engagement.  Section~\ref{sec:km} examines the problems and challenges in knowledge management in the context of software services.  Section~\ref{sec:risk} describes challenges in risk prediction.  Section~\ref{sec:testing-debugging} takes a closer look at testing services, in which the objective of the engagement is to outsource testing activities.  Finally, in Section~\ref{sec:experience}, we relate our experiences in trying to deploy innovations in industrial service delivery.
+The rest of the paper is organized as follows. In the next section, we take a
+closer look at a sample software services engagement.  Section~\ref{sec:global}
+describes the research challenges in how people and work are organized in a
+large services engagement.  Section~\ref{sec:km} examines the problems and
+challenges in knowledge management in the context of software services.
+Section~\ref{sec:risk} describes challenges in risk prediction.
+Section~\ref{sec:testing-debugging} takes a closer look at testing services, in
+which the objective of the engagement is to outsource testing activities.  In
+Section~\ref{sec:experience}, we relate our experiences in deploying innovations
+in industrial service delivery; finally, Section~\ref{sec:conclusion} concludes
+the paper.
 
-\label{sec:intro}

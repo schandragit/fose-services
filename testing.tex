@@ -20,16 +20,6 @@ of the entire services landscape.
 %% (fixed capacity, outcome based). But perhaps this needs to be mentioned earlier
 %% as these modes are not particular to testing services.
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=.9\columnwidth, clip, trim = 22mm 133mm 65mm
-  17mm]{figs/testing-activities.pdf}
-\vspace*{-8pt}
-\caption{Typical testing activities performed in delivery of testing services.}
-\vspace*{-15pt}
-\label{fig:testing-activities}
-\end{figure}
-
 The nature of the activities performed in a testing-services engagement can vary
 from client to client. The scope of work can include any of test planning, test
 design, test-data creation, test automation, test execution, and test
@@ -65,16 +55,26 @@ related reason is that the supply of labor that can deliver testing services has
 hitherto been plentiful and affordable, reducing the economic motivation to
 invest in tools.
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=.9\columnwidth, clip, trim = 22mm 133mm 65mm
+  17mm]{figs/testing-activities.pdf}
+\vspace*{-5pt}
+\caption{Typical testing activities performed in delivery of testing services.}
+\vspace*{-10pt}
+\label{fig:testing-activities}
+\end{figure}
+
 The only ``testing'' tools that are routinely used in testing services are test
 management and reporting tools that help keep track of the tests that have been
 run (often manually) and their outcomes.
 
-However, given the growth in testing services, it is inevitable that it needs to move from
-a labor intensive business to an assets and tools-based business.  Therefore, 
-research in this area is about automated tools so that 
-testing can be carried out at lower cost and with consistent quality.  
-Implicit in the abovementioned reasons is that the proposed solutions should be 
-quick to deploy, low cost, and accessible to a large labor pool.
+However, given the growth in testing services, it is inevitable that it needs to
+move from a labor intensive business to an assets and tools-based business.
+Therefore, research in this area is about automated tools so that testing can be
+carried out at lower cost and with consistent quality.  Implicit in the
+abovementioned reasons is that the proposed solutions should be quick to deploy,
+low cost, and accessible to a large labor pool.
 
 %%For instance, many of these activities can require specific skills in
 %%testing techniques/tools or coding expertise, which the average testing
@@ -136,7 +136,7 @@ including test design, test execution, test-data and test-environment
 provisioning, test reporting, etc., it should also answer key business
 questions, such as~\cite{Kagan:NextGenTesting}
 
-\vspace*{-7pt}
+\vspace*{-5pt}
 \begin{itemize}
 \denseitems
 
@@ -266,9 +266,9 @@ elements is also stored in the test scripts.
 \centering
 \includegraphics[width=.95\columnwidth, clip, trim = 21mm 93mm 65mm
   18mm]{figs/sample-test-case.pdf}
-\vspace*{-10pt}
+\vspace*{-5pt}
 \caption{Sample manual test case and tool-agnostic script representation.}
-\vspace*{-13pt}
+\vspace*{-10pt}
 \label{fig:sample-test-case}
 \end{figure}
 
@@ -438,14 +438,14 @@ up-to-date.
 
 When an application is modified to accommodate changed requirements, it can be
 hard to identify which test cases have become obsolete.  In general, a test
-failure observed on a new version of the application can either expose
-application faults or result from a problem with the test itself. Determining
-this reason for failure is the critical first step before any corrective action
-can be taken---repairing the test if the test is broken, or fixing the
-application if the test has revealed an application fault. Without any tool
-assistance and faced with a large number of test failures, testers can tend
-toward ignoring test-execution results or, even worse, deleting failing tests,
-which can quickly degrade test-suite coverage and defeat the purpose of testing.
+failure observed on a new application version can either expose application
+faults or result from a problem with the test itself. Determining this reason
+for failure is the critical first step before any corrective action can be
+taken---repairing the test if the test is broken, or fixing the application if
+the test has revealed an application fault. Without tool assistance and faced
+with a large number of test failures, testers can tend to ignore test-execution
+results or, even worse, delete failing tests, which can quickly degrade test
+coverage and defeat the purpose of testing.
 
 Researchers are starting to address the problem of automatically identifying
 obsolete tests---\eg Reference~\cite{Hao:2013} presents a machine-learning-based
