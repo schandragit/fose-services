@@ -1,28 +1,62 @@
 \section{Organizing People and Work}
 \label{sec:global}
 
-%Globalization and the implicit challenges of distributed development have
-%become the norm in recent years for large enterprises~\cite{glo24,glo26}.
-%Evaristo~\cite{glo27} categorizes the nature of these challenges into five
-%critical areas: Perceived distance (geographical and temporal), National
-%culture (languages, accepted work patterns), Development methodology
-%(similarity in processes), Task structure (clarity and structure to team
-%hand-offs) and Organizational distance. The premise is that as the distance
-%between the teams along these critical dimensions increases, the overhead and
-%difficulties associated with distributed development become more
-%prominent. Collaborative development platforms that promote structured
-%interaction between team members can help make distributed development more
-%efficient~\cite{glo28,glo29}. Sharing expertise and the ability to leverage
-%best practices across engagements is a key part of ensuring efficient
-%collaboration -- Expertise Browser~\cite{glo30} and Hipikat~\cite{glo31} are
-%examples of tools that enable sharing at the level of processes and
-%artifacts. Given the rapid churn of resources in the global workforce, a push
-%model of delivering information in situ to developers is important and many of
-%the proposed tools~\cite{glo29,glo31} support this model. The adoption of
-%Cloud, API centric approach to development and agile methods are also helping
-%to reduce the inefficiencies inherent in distributed development. Tooling that
-%can help efficiently leverage a global workforce remains an active and
-%important area of research.
+Globalization and the implicit challenges of distributed development have
+become the norm in recent years for large enterprises~\cite{glo24,glo26}.
+Evaristo~\cite{glo27} categorizes the nature of these challenges into five
+critical areas: perceived distance (geographical and temporal), national
+culture (languages, accepted work patterns), development methodology
+(similarity in processes), task structure (clarity and structure to team
+hand-offs) and organizational distance. The premise is that as the distance
+between the teams along these critical dimensions increases, the overhead and
+difficulties associated with distributed development become more
+prominent. Collaborative development platforms that promote structured
+interaction between team members can help make distributed development more
+efficient~\cite{glo28,glo29}. Sharing expertise and the ability to leverage
+best practices across engagements is a key part of ensuring efficient
+collaboration -- Expertise Browser~\cite{glo30} and Hipikat~\cite{glo31} are
+examples of tools that enable sharing at the level of processes and
+artifacts. Given the rapid churn of resources in the global workforce, a push
+model of delivering information in situ to developers is important and many of
+the proposed tools~\cite{glo29,glo31} support this model. The adoption of
+Cloud, API centric approach to development and agile methods are also helping
+to reduce the inefficiencies inherent in distributed development. Tooling that
+can help efficiently leverage a global workforce remains an active and
+important area of research.
+
+The existing literature on distributed development has mostly focused on the
+need of one organization engaged in carrying out work globally for reasons
+of efficiency and cost.  Services companies have additional concerns.  They
+serve multiple large clients, and the work of each of those clients has to
+be carried out in the distributed fashion.  In the earlier days, services
+companies grew essentially distinct teams to serve distinct clients.  This
+turns out to be not optimimal from a resource utilization point of view.
+
+Recent trend has been towards \textit{competency centers}, which are virtual
+entities that specialize in a specific software skill set.  The advantages of
+competency center approach are resource multiplexing as well as specialization.
+For example, a testing competency center could serve multiple clients, and
+could be the home for testing expertise within the company. 
+
+IBM has been a pioneer in
+this field---their approach to structured delivery of IT services by a globally
+distributed delivery team is called Application Assembly
+Optimization~\cite{gloaao}. Other major IT services companies have adopted
+variations of this approach.
+
+\textit{Work envelopes} are the central construct in the competency-center approach for
+structured delivery of software projects that enable disparate competency
+centers to come together on-demand, in the context of a client engagement.  Work
+envelopes represent a standard communication vehicle between distributed teams
+by which each work order is authored, transported, and delivered. Work envelopes
+include workflow, instruction (normative guidance), metrics collection, and risk
+management/exception handling mechanisms. Each work envelope constitutes a
+subset of activities that are bound to a larger project-wide work-breakdown
+structure managed through a traditional project-management tool. 
+
+
+
+\textbf{Prior Material}
 
 The last few years have seen an accelerated trend toward organizations utilizing
 a globally integrated development model for complex IT solution
@@ -85,6 +119,8 @@ include workflow, instruction (normative guidance), metrics collection, and risk
 management/exception handling mechanisms. Each work envelope constitutes a
 subset of activities that are bound to a larger project-wide work-breakdown
 structure managed through a traditional project-management tool.
+
+\textbf{End of Prior material}
 
 \subsection{Research Topic: Efficient Competency Centers}
 
