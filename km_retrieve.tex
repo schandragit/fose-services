@@ -1,3 +1,4 @@
+\vspace{-5pt}
 \subsubsection{Knowledge Retrieval}
 
 Challenges in knowledge retrieval are related to the search capabilities offered
@@ -163,8 +164,9 @@ similar tickets.  Based on the past tickets and the current context, the user
 has to formulate potential hypotheses about the root cause, decide which
 hypotheses are applicable, and then investigate the solutions. The OKMS would be
 much more useful if it could automatically generate potential hypotheses about
-root causes and solutions for the user to investigate. Such analytics could also
-be developed for other scenarios such as service improvement.
+root causes and solutions for the user to investigate.
+
+Service requests or tickets contain a lot of information in unstructured text format. Textual analytics applied on this data can help provide useful insights. For example, clustering on service tickets text could help identify problem areas that are causing higher maintanence grief and hence are good candidates for doing preventive work. This approach is discussed in \cite{mani2014}. Analysis of groups of similar problems and resolutions can be used to auto extract out frequently asked question and answers from service requests. In \cite{henss12} authors have presented a text mining and natural language processing based approach to extract FAQs from questions being asked on mailing lists of open source projects.
 
 The effectiveness of knowledge retrieval in the context of service delivery
 depends to a large extent on the user's ability to identify projects similar to
@@ -209,7 +211,7 @@ have the requisite knowledge, not store the knowledge. This strategy is
 especially appropriate in cases where knowledge cannot be easily codified, such
 as the knowledge for handling situations that require complex decision
 making. Expertise browsing, recommendation, and mining have been explored in
-various contexts (\eg \cite{Balog:2006, McDonald:2000, Mockus:2002}). Extending
+various contexts (\eg \cite{Balog:2006, Mockus:2002}). Extending
 these ideas to the context of service delivery, where the OKMS contains data
 from multiple projects in different contexts, is an area where further research
 can help.
