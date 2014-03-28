@@ -31,14 +31,14 @@ consumers. For providers, the goal is to improve financial outcomes while
 maintaining high customer satisfaction. For consumers, the goal is to obtain
 functional software that meets the business requirements while avoiding cost
 overruns. Although there is a shared goal of building useful software for the
-end consumer, optimal risk mitigation actions may be different for these two
+end consumer, optimal risk mitigation actions may be different for the two
 parties. A key focus of academic risk-management literature is reduction in
 functionality risk~\cite{risk11}.  It is the risk that churn in business
 requirements and scope, combined with ineffective communication mechanisms,
 leads to the development of software that is essentially useless to the end
 user~\cite{risk12}. In complex IT engagements, completely eliminating
 functionality risk, which in turn may lead to high customer satisfaction, may
-result in an unacceptable increase in other risk factors such as financial risk
+result in an unacceptable increase in other risk factors, such as financial risk
 for the provider. We believe that the best approach is to look for trouble
 patterns across a broad spectrum of risk indicators and surface problems, which
 then allow risk managers to make informed decisions. We can potentially use
@@ -50,34 +50,33 @@ It is well known that decision-makers, including those in the risk-management
 community, routinely use flawed heuristics in decision-making, which are subject
 to systematic biases~\cite{risk27}. Heemstra~\cite{risk24} analyzes how filters
 and biases of personnel involved in judging a project may prevent an accurate
-risk assessment. He suggests a team-based decision making approach to avoid
-being heavily influenced by particular individuals. Host and
-Lindholm~\cite{risk25} perform an empirical analysis of how a set of identified
-project risks are weighted by different individuals. They find a wide variance
-in the perceived importance attached to individual risk factors; however, they
-could not explain this variance on the basis of the particular role played by
-the person in the project. Maytorena~\cite{risk26} provides an interesting study
-on the effect of experience on the ability of project managers to recognize
-certain risk factors. It shows that experience does not have a significant
-impact on the ability to detect risk as do other factors such as risk-management
-training, ability to quickly grasp information, and the level of education. In
-practice, we find that packaging this information in an easily understandable
-and actionable fashion for the decision makers is as important as surfacing
-risks accurately.
+risk assessment. He suggests a team-based decision-making approach to avoid
+undue influence by particular individuals. Host and Lindholm~\cite{risk25}
+perform an empirical analysis of how a set of identified project risks are
+weighted by different individuals. They find a wide variance in the perceived
+importance attached to individual risk factors; however, they could not explain
+this variance on the basis of the role played by the person in the
+project. Maytorena~\cite{risk26} provides an interesting study on the effect of
+experience on the ability of project managers to recognize certain risk
+factors. It shows that experience does not have a significant impact on the
+ability to detect risk as do other factors such as risk-management training,
+ability to quickly grasp information, and the level of education. In practice,
+packaging this information in an easily understandable and actionable fashion
+for the decision makers is as important as surfacing risks accurately.
 
 Quantitative analysis of IT investment decisions using options analysis, to
 mitigate financial risk, is an active area of
 research~\cite{risk14,risk15,risk16}. Options analysis can be used to assess the
-value of prototyping work and early adoption initiatives related to new IT
-platforms---options provide a way of evaluating the value of IT projects that
-gives the right to adopt the resulting technology without having the obligation
-to do so. Fichman~\cite{risk14} shows how options analysis can be used to
-predict IT platform initiation and adoption, value IT platform options, and
-manage IT platform implementation. Chen and Sheng~\cite{risk15} discuss how to
-perform real options analysis while accounting for estimation errors. However,
-the ability to use the results of the analysis in a dispassionate manner to
-start and cull IT projects is still a contentious topic~\cite{risk17}. As Keil
-et al.~\cite{risk18} observe, there is a strong bias in many organizations to
+value of prototyping and early adoption of new IT platforms---options provide a
+way of evaluating the value of IT projects that gives the right to adopt the
+resulting technology without having the obligation to do
+so. Fichman~\cite{risk14} shows how options analysis can be used to predict IT
+platform initiation and adoption, value IT platform options, and manage IT
+platform implementation. Chen and Sheng~\cite{risk15} discuss how to perform
+real options analysis while accounting for estimation errors. However, the
+ability to use the results of the analysis in a dispassionate manner to start
+and cull IT projects is still a contentious topic~\cite{risk17}. As Keil et
+al.~\cite{risk18} observe, there is a strong bias in many organizations to
 continue with IT projects even though financial analysis indicates otherwise. In
 our view, the lack of widespread adoption for options analysis can be traced
 back to a fundamental issue that affects all methods for analyzing financial
@@ -90,26 +89,26 @@ on a particular methodology for evaluating net present value.
 In recent literature, the trend toward a systems approach to risk management,
 wherein statistical techniques are used to classify and mine the project metrics
 data with a view to proactively learn the new trends, is gaining
-acceptance~\cite{risk8,risk9,risk10}.  These methods actively use the metrics
-collected during traditional risk management reviews, and then employ techniques
-borrowed from statistical-learning theory to derive models that describe the
-relationship between the collected metrics and eventual project outcomes. Thus,
-certain patterns of values in project metrics can act as alerts, which can be
-used to initiate further reviews to see whether the alert was justified. It is
-important to note that these techniques, in most cases, cannot identify why a
-project may be troubled; \ie they can serve only as a starting point for further
-investigation.  Another significant short coming of these models is their
+acceptance~\cite{risk8,risk9,risk10}.  These methods use the metrics collected
+during traditional risk-management reviews, and employ techniques borrowed from
+statistical-learning theory to derive models that describe the relationship
+between the collected metrics and eventual project outcomes. Thus, certain
+patterns of values in project metrics can act as alerts, which can be used to
+initiate further reviews to see whether the alert was justified. It is important
+to note that these techniques, in most cases, cannot identify why a project may
+be troubled; \ie they can serve only as a starting point for further
+investigation.  Another significant shortcoming of these models is their
 inability to account for outliers and missing data---for example, a project in
 good health will not typically have as thorough a review as a project in
 trouble. Unless the data that is used to train the model is carefully validated
 to account for these characteristic patterns, there is a good chance that the
 model will not be very accurate. This problem is particularly prevalent in large
-IT delivery organizations which typically exhibit a large variance in both the
-quality of the metrics collected and the reporting patterns. Even for a large
-services provider that performs thousands of software projects with a variety of
-clients, it is not clear that there is infact a common set of criteria to judge
-the risk involved in these projects due to the great diversity in the projects
-and the client context in which they are executed.
+IT delivery organizations, which typically exhibit a large variance in both the
+quality of the metrics collected and the reporting patterns. For a large
+services provider that performs thousands of software projects, it is not clear
+that there is a common set of criteria to judge the risk involved in these
+projects due to the diversity in the projects and the client context in which
+they are executed.
 
 \subsection{Quantitative Analysis: An example}
 
